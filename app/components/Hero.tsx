@@ -28,14 +28,14 @@ const projects = [
   },
   {
     id: 4,
-    title: "CREATIVE FLOW",
+    title: "URBAN VIBES",
     description:
       "Eleifend ipsum lacinia luctus dis ac turpis sociosqu risus integer pellentesque",
     image: "/assets/projects/gta.png",
   },
   {
-    id: 4,
-    title: "CREATIVE FLOW",
+    id: 5,
+    title: "NEARWALA",
     description:
       "Eleifend ipsum lacinia luctus dis ac turpis sociosqu risus integer pellentesque",
     image: "/assets/projects/nearwala.png",
@@ -44,16 +44,29 @@ const projects = [
 
 const Hero = () => {
   const [activeCard, setActiveCard] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [hasMouseMoved, setHasMouseMoved] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const imageRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      // Show card on first mouse move
+      if (!hasMouseMoved) {
+        setHasMouseMoved(true);
+        setIsVisible(true);
 
-      if (cardRef.current) {
+        // Start interval to change cards after first mouse move
+        intervalRef.current = setInterval(() => {
+          setActiveCard((prev) => (prev + 1) % projects.length);
+        }, 2000);
+      }
+
+      if (cardRef.current && isVisible) {
         gsap.to(cardRef.current, {
-          x: e.clientX - 160, // Offset to center the card
+          x: e.clientX - 160,
           y: e.clientY - 200,
           duration: 0.8,
           ease: "power3.out",
@@ -61,78 +74,83 @@ const Hero = () => {
       }
     };
 
-    // Change card every 2 seconds when mouse moves
-    const interval = setInterval(() => {
-      setActiveCard((prev) => (prev + 1) % projects.length);
-    }, 2000);
-
     window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      clearInterval(interval);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
     };
-  }, []);
+  }, [hasMouseMoved, isVisible]);
 
   useEffect(() => {
-    // Animate card change
-    if (cardRef.current) {
-      gsap.fromTo(
-        cardRef.current,
-        {
-          scale: 0.8,
-          opacity: 0,
-          rotation: -10,
-        },
-        {
-          scale: 1,
+    // Fade out and fade in animation when card changes
+    if (imageRef.current && textRef.current && isVisible) {
+      const tl = gsap.timeline();
+
+      tl.to([imageRef.current, textRef.current], {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in",
+      })
+        .set(imageRef.current, {
+          // This ensures the image source updates while invisible
+        })
+        .to([imageRef.current, textRef.current], {
           opacity: 1,
-          rotation: 15,
-          duration: 0.5,
-          ease: "back.out(1.7)",
-        }
-      );
+          duration: 0.3,
+          ease: "power2.out",
+        });
     }
-  }, [activeCard]);
+  }, [activeCard, isVisible]);
 
   return (
     <div className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Floating Project Card - Follows cursor */}
-      <div
-        ref={cardRef}
-        className="fixed w-80 rounded-lg shadow-2xl overflow-hidden pointer-events-none z-10"
-        style={{
-          left: 0,
-          top: 0,
-        }}
-      >
-        {/* Image Box */}
-        <div className="relative w-full h-50 bg-gray-800">
-          <Image
-            src={projects[activeCard].image}
-            alt={projects[activeCard].title}
-            fill
-            className="object-cover"
-          />
-        </div>
+      {isVisible && (
+        <div
+          ref={cardRef}
+          className="fixed w-80 rounded-lg shadow-2xl overflow-hidden pointer-events-none z-10"
+          style={{
+            left: 0,
+            top: 0,
+          }}
+        >
+          {/* Image Box */}
+          <div
+            ref={imageRef}
+            className="relative w-full h-64 bg-gray-800 transition-opacity"
+          >
+            <Image
+              src={projects[activeCard].image}
+              alt={projects[activeCard].title}
+              fill
+              className="object-cover"
+            />
+          </div>
 
-        {/* Description Box */}
-        <div className="w-full bg-gray-200 p-5">
-          <h3 className="text-black font-bold text-lg mb-2">
-            {projects[activeCard].title}
-          </h3>
-          <p className="text-gray-700 text-xs leading-relaxed line-clamp-3">
-            {projects[activeCard].description}
-          </p>
+          {/* Description Box */}
+          <div
+            ref={textRef}
+            className="w-full bg-gray-200 p-5 transition-opacity"
+          >
+            <h3 className="text-black font-bold text-lg mb-2">
+              {projects[activeCard].title}
+            </h3>
+            <p className="text-gray-700 text-xs leading-relaxed line-clamp-3">
+              {projects[activeCard].description}
+            </p>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Main Title */}
       <div className="relative z-20 mix-blend-difference">
         <h1 className="text-white font-bold text-7xl md:text-9xl text-center tracking-wider leading-tight">
-          DHANIEEL
+          DHANIYEL
           <br />
-          DAYAN
+          DARVESH
         </h1>
       </div>
     </div>

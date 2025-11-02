@@ -1,4 +1,44 @@
 @import "tailwindcss";
+
 body {
   background-color: black;
+}
+
+@layer base {
+  :root {
+    --color-primary: #be5cff;
+    --color-secondary: #1e1e1e;
+  }
+
+  .dark {
+    --color-primary: #9333ea;
+    --color-secondary: #111111;
+  }
+}
+
+/* Define custom utilities OUTSIDE of @layer components */
+@utility flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@utility flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@utility col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@utility abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

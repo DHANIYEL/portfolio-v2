@@ -13,8 +13,8 @@ const NavBar = () => {
   };
 
   return (
-    <header className="text-white my-5">
-      <nav className="flex w-full items-center justify-between px-8">
+    <header className="fixed top-0 left-0 w-full text-white z-50 bg-black/50 backdrop-blur-sm">
+      <nav className="flex w-full items-center justify-between px-8 py-5">
         <ul className="flex gap-8 flex-1 justify-center">
           {navLinks.map(({ label }) => (
             <li

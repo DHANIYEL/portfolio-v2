@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const afterFont = localFont({
+  src: "./fonts/After-Regular.woff", // Font in app/fonts/
+  variable: "--font-after",
+  weight: "400",
 });
 
 const geistMono = Geist_Mono({
@@ -25,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-hidden`}
+        className={`${afterFont.variable} ${geistMono.variable} antialiased overflow-hidden font-[family-name:var(--font-after)]`}
       >
         {children}
       </body>

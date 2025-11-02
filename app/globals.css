@@ -2,6 +2,7 @@
 
 body {
   background-color: black;
+  font-family: var(--font-after), sans-serif;
 }
 
 @layer base {
@@ -42,4 +43,3 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-

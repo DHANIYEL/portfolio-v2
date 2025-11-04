@@ -50,10 +50,10 @@ const NavBar = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full text-white backdrop-blur-sm"
-        style={{ zIndex: 80 }}
+        className="fixed top-0 left-0 w-full text-white md:backdrop-blur-sm"
+        style={{ zIndex: 50 }}
       >
-        <nav className="flex w-full items-center justify-between px-8 py-5 bg-black/50">
+        <nav className="flex w-full items-center justify-between px-8 py-5 md:bg-black/50">
           {/* Empty spacer for mobile to push hamburger to right */}
           <div className="md:hidden"></div>
 
@@ -79,10 +79,10 @@ const NavBar = () => {
             </div>
 
             {/* Mobile Menu Button - Right Side - Stays on top */}
-            <div className="md:hidden relative" style={{ zIndex: 80 }}>
+            <div className="md:hidden relative" style={{ zIndex: 999 }}>
               <div
                 className="hamburger-bg absolute inset-0 rounded-full bg-[#be5cff] transition-transform duration-200 ease-out"
-                style={{ willChange: 'transform' }}
+                style={{ willChange: "transform" }}
               ></div>
               <button
                 onClick={() => setIsActive(!isActive)}
@@ -161,7 +161,7 @@ const NavBar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60]"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[30]"
               onClick={() => setIsActive(false)}
             />
 
@@ -170,14 +170,14 @@ const NavBar = () => {
               initial="initial"
               animate="enter"
               exit="exit"
-              className="fixed right-0 top-0 h-screen bg-[#1a1a1a] text-white z-[70] shadow-2xl w-full sm:w-[400px] max-w-[400px]"
+              className="fixed right-0 top-0 h-screen bg-[#1a1a1a] text-white z-[40] shadow-2xl w-full sm:w-[400px] max-w-[400px]"
             >
               {/* Top section with Close button and Contact */}
-              <div className="flex items-center justify-end px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 border-b border-gray-800">
+              {/* <div className="flex items-center justify-end px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 border-b border-gray-800">
                 <div className="relative">
                   <div
                     className="close-bg absolute inset-0 rounded-full bg-[#be5cff] transition-transform duration-200 ease-out"
-                    style={{ willChange: 'transform' }}
+                    style={{ willChange: "transform" }}
                   ></div>
                   <button
                     onClick={() => setIsActive(false)}
@@ -240,9 +240,9 @@ const NavBar = () => {
                     </svg>
                   </button>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="flex flex-col h-full px-6 sm:px-8 md:px-12 pt-8 sm:pt-10 md:pt-12 pb-8 sm:pb-10 md:pb-12">
+              <div className="flex flex-col h-full px-6 sm:px-8 md:px-12 pt-24 pb-8 sm:pb-12 md:pb-16">
                 <div className="flex flex-col gap-2 sm:gap-3">
                   <div className="text-[0.65rem] sm:text-xs uppercase text-gray-400 mb-4 sm:mb-6 border-b border-gray-700 pb-2 sm:pb-3">
                     Navigation
@@ -262,11 +262,7 @@ const NavBar = () => {
                           href={link.href}
                           className="text-3xl sm:text-4xl md:text-5xl font-light hover:text-[#be5cff] transition-colors duration-300 block py-1 sm:py-2"
                         >
-                          {link.label === "Contact" ? (
-                            <HoverButton>Contact</HoverButton>
-                          ) : (
-                            link.label
-                          )}
+                          {link.label}
                         </Link>
                       </motion.div>
                     ))}

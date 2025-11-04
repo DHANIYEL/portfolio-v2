@@ -45,6 +45,21 @@ const Hero = () => {
         }
       );
     }
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".text-scale", // your class selector
+        start: "top 80%", // animation starts when top of element hits 80% of viewport
+        end: "bottom 20%", // ends near bottom
+        scrub: true, // syncs with scroll
+        markers: false, // toggle true for debugging
+      },
+    });
+
+    tl.fromTo(
+      ".text-scale",
+      { scale: 1, opacity: 1 },
+      { scale: 0.6, opacity: 0.6, ease: "power2.out" }
+    );
   }, [isLoading]);
   return (
     <>
@@ -52,7 +67,7 @@ const Hero = () => {
       <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-visible bg-black px-4 md:px-8 py-20">
         {/* Main Title - CREATIVE WORLD */}
         <div className="relative z-10 mb-10 md:mb-20">
-          <h1 className="text-white font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] text-center tracking-wider leading-none uppercase fade-in">
+          <h1 className="text-white font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] text-center tracking-wider leading-none uppercase fade-in text-scale">
             DHANIYEL
             {/* Create */}
             <br />

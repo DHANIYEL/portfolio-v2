@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${afterFont.variable} ${geistMono.variable} antialiased overflow-hidden font-[family-name:var(--font-after)]`}
+        className={`${afterFont.variable} ${geistMono.variable} antialiased font-[family-name:var(--font-after)]`}
       >
         {children}
       </body>

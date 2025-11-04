@@ -4,13 +4,13 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black px-4 md:px-8">
+    <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-visible bg-black px-4 md:px-8 py-20">
       {/* Main Title - CREATIVE WORLD */}
       <div className="relative z-10 mb-10 md:mb-20">
         <h1 className="text-white font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] text-center tracking-wider leading-none uppercase">
-          CREATIVE
+          DHANIYEL
           <br />
-          WORLD
+          DARVESH
         </h1>
 
         {/* Left Card - LIVING COLOR */}
@@ -49,16 +49,39 @@ const Hero = () => {
       {/* Bottom Text */}
       <div className="absolute bottom-4 left-3 sm:bottom-6 sm:left-6 md:bottom-8 md:left-8 lg:bottom-12 lg:left-12 text-white max-w-[45%] sm:max-w-[50%] md:max-w-none">
         <p className="text-[0.6rem] leading-tight sm:text-xs sm:leading-normal md:text-sm lg:text-base uppercase tracking-wide">
-          HI, LOREM IPSUM DOLOR AMET
-          <br />
-          SIET HORICON DOUR DA
+          {/* HI, DHANIYEL DARVESH
+          <br /> */}
+          <span className="block text-[0.65rem] sm:text-sm md:text-base lg:text-lg max-w-lg text-[var(--color-primary)] normal-case tracking-normal">
+            {[
+              "I'm",
+              "a",
+              "Web",
+              "and",
+              "App",
+              "Developer",
+              "crafting",
+              "seamless",
+              "digital",
+              "experiences",
+              "with",
+              "modern",
+              "technologies.",
+            ].map((word, index) => (
+              <span
+                key={index}
+                className="cursor-pointer hover:text-white transition-colors duration-300 inline-block mr-1"
+              >
+                {word}
+              </span>
+            ))}
+          </span>
         </p>
       </div>
 
       {/* Since Year */}
       <div className="absolute bottom-4 right-3 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 text-white">
         <p className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-4xl font-bold tracking-wider">
-          SINCE 2024
+          SINCE 2020
         </p>
       </div>
     </div>

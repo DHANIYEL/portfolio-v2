@@ -13,7 +13,6 @@ const Hero = () => {
   };
 
   useGSAP(() => {
-    // Only run animation after loading is complete
     if (!isLoading) {
       gsap.fromTo(
         ".fade-in",
@@ -25,14 +24,9 @@ const Hero = () => {
           ease: "power2.out",
         }
       );
-    }
-  }, [isLoading]);
-  useGSAP(() => {
-    // Only run animation after loading is complete
-    if (!isLoading) {
       gsap.fromTo(
-        ".fade-right",
-        { opacity: 0, x: -30 },
+        ".fade-left",
+        { opacity: 0, x: 30 },
         {
           opacity: 1,
           x: 0,
@@ -40,14 +34,9 @@ const Hero = () => {
           ease: "power2.out",
         }
       );
-    }
-  }, [isLoading]);
-  useGSAP(() => {
-    // Only run animation after loading is complete
-    if (!isLoading) {
       gsap.fromTo(
-        ".fade-left",
-        { opacity: 0, x: 30 },
+        ".fade-right",
+        { opacity: 0, x: -30 },
         {
           opacity: 1,
           x: 0,

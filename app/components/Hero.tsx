@@ -55,7 +55,7 @@ const Hero = () => {
   const [hasMouseMoved, setHasMouseMoved] = useState(false);
   const [hideCard, setHideCard] = useState(false);
   const [hasClicked, setHasClicked] = useState(false);
-  
+
   const cardRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -122,7 +122,7 @@ const Hero = () => {
 
   const handleCardClick = () => {
     if (hasClicked) return;
-    
+
     setHasClicked(true);
 
     // Stop the interval when clicked
@@ -198,9 +198,9 @@ const Hero = () => {
       {/* Main Title */}
       <div className="relative z-20 mix-blend-difference">
         <h1 className="text-white font-bold text-5xl md:text-9xl text-center tracking-wider leading-tight">
-          DHANIYEL
+          CREATE
           <br />
-          DARVESH
+          PAGE
         </h1>
       </div>
     </div>

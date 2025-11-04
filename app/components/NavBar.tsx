@@ -79,51 +79,74 @@ const NavBar = () => {
             </div>
 
             {/* Mobile Menu Button - Right Side - Stays on top */}
-            <button
-              onClick={() => setIsActive(!isActive)}
-              onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const mouseX = e.clientX - rect.left;
-                const mouseY = e.clientY - rect.top;
+            <div className="md:hidden relative" style={{ zIndex: 80 }}>
+              <div
+                className="hamburger-bg absolute inset-0 rounded-full bg-[#be5cff] transition-transform duration-200 ease-out"
+                style={{ willChange: 'transform' }}
+              ></div>
+              <button
+                onClick={() => setIsActive(!isActive)}
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const centerX = rect.width / 2;
+                  const centerY = rect.height / 2;
+                  const mouseX = e.clientX - rect.left;
+                  const mouseY = e.clientY - rect.top;
 
-                // Calculate magnetic pull (max 10px movement)
-                const deltaX = (mouseX - centerX) * 0.3;
-                const deltaY = (mouseY - centerY) * 0.3;
+                  // Calculate magnetic pull with increased distance
+                  const deltaX = (mouseX - centerX) * 0.5;
+                  const deltaY = (mouseY - centerY) * 0.5;
 
-                const icon = e.currentTarget.querySelector('.hamburger-icon') as HTMLElement;
-                if (icon) {
-                  icon.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-                }
-              }}
-              onMouseLeave={(e) => {
-                const icon = e.currentTarget.querySelector('.hamburger-icon') as HTMLElement;
-                if (icon) {
-                  icon.style.transform = 'translate(0px, 0px)';
-                }
-              }}
-              className="md:hidden relative p-5 text-white cursor-pointer group rounded-full bg-[#be5cff] overflow-visible"
-              style={{ zIndex: 80 }}
-            >
-              <div className="hamburger-icon flex flex-col gap-1.5 w-6 transition-transform duration-200 ease-out">
-                <span
-                  className={`block h-0.5 bg-white transition-all duration-300 ${
-                    isActive ? "rotate-45 translate-y-2" : ""
-                  }`}
-                ></span>
-                <span
-                  className={`block h-0.5 bg-white transition-all duration-300 ${
-                    isActive ? "opacity-0" : ""
-                  }`}
-                ></span>
-                <span
-                  className={`block h-0.5 bg-white transition-all duration-300 ${
-                    isActive ? "-rotate-45 -translate-y-2" : ""
-                  }`}
-                ></span>
-              </div>
-            </button>
+                  const icon = e.currentTarget.querySelector(
+                    ".hamburger-icon"
+                  ) as HTMLElement;
+                  const bg = e.currentTarget.parentElement?.querySelector(
+                    ".hamburger-bg"
+                  ) as HTMLElement;
+
+                  if (icon) {
+                    icon.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                  }
+                  if (bg) {
+                    bg.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const icon = e.currentTarget.querySelector(
+                    ".hamburger-icon"
+                  ) as HTMLElement;
+                  const bg = e.currentTarget.parentElement?.querySelector(
+                    ".hamburger-bg"
+                  ) as HTMLElement;
+
+                  if (icon) {
+                    icon.style.transform = "translate(0px, 0px)";
+                  }
+                  if (bg) {
+                    bg.style.transform = "translate(0px, 0px)";
+                  }
+                }}
+                className="relative p-5 text-white cursor-pointer group overflow-visible bg-transparent"
+              >
+                <div className="hamburger-icon flex flex-col gap-1.5 w-6 transition-transform duration-200 ease-out">
+                  <span
+                    className={`block h-0.5 bg-white transition-all duration-300 ${
+                      isActive ? "rotate-45 translate-y-2" : ""
+                    }`}
+                  ></span>
+                  <span
+                    className={`block h-0.5 bg-white transition-all duration-300 ${
+                      isActive ? "opacity-0" : ""
+                    }`}
+                  ></span>
+                  <span
+                    className={`block h-0.5 bg-white transition-all duration-300 ${
+                      isActive ? "-rotate-45 -translate-y-2" : ""
+                    }`}
+                  ></span>
+                </div>
+              </button>
+            </div>
           </div>
         </nav>
       </header>
@@ -151,48 +174,72 @@ const NavBar = () => {
             >
               {/* Top section with Close button and Contact */}
               <div className="flex items-center justify-end px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 border-b border-gray-800">
-                <button
-                  onClick={() => setIsActive(false)}
-                  onMouseMove={(e) => {
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const mouseX = e.clientX - rect.left;
-                    const mouseY = e.clientY - rect.top;
+                <div className="relative">
+                  <div
+                    className="close-bg absolute inset-0 rounded-full bg-[#be5cff] transition-transform duration-200 ease-out"
+                    style={{ willChange: 'transform' }}
+                  ></div>
+                  <button
+                    onClick={() => setIsActive(false)}
+                    onMouseMove={(e) => {
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      const centerX = rect.width / 2;
+                      const centerY = rect.height / 2;
+                      const mouseX = e.clientX - rect.left;
+                      const mouseY = e.clientY - rect.top;
 
-                    // Calculate magnetic pull (max 10px movement)
-                    const deltaX = (mouseX - centerX) * 0.3;
-                    const deltaY = (mouseY - centerY) * 0.3;
+                      // Calculate magnetic pull with increased distance
+                      const deltaX = (mouseX - centerX) * 0.5;
+                      const deltaY = (mouseY - centerY) * 0.5;
 
-                    const icon = e.currentTarget.querySelector('.close-icon') as HTMLElement;
-                    if (icon) {
-                      icon.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    const icon = e.currentTarget.querySelector('.close-icon') as HTMLElement;
-                    if (icon) {
-                      icon.style.transform = 'translate(0px, 0px)';
-                    }
-                  }}
-                  className="relative text-white cursor-pointer rounded-full bg-[#be5cff] p-3 overflow-visible"
-                >
-                  <svg
-                    width="28"
-                    height="28"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="close-icon sm:w-8 sm:h-8 transition-transform duration-200 ease-out"
+                      const icon = e.currentTarget.querySelector(
+                        ".close-icon"
+                      ) as HTMLElement;
+                      const bg = e.currentTarget.parentElement?.querySelector(
+                        ".close-bg"
+                      ) as HTMLElement;
+
+                      if (icon) {
+                        icon.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                      }
+                      if (bg) {
+                        bg.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      const icon = e.currentTarget.querySelector(
+                        ".close-icon"
+                      ) as HTMLElement;
+                      const bg = e.currentTarget.parentElement?.querySelector(
+                        ".close-bg"
+                      ) as HTMLElement;
+
+                      if (icon) {
+                        icon.style.transform = "translate(0px, 0px)";
+                      }
+                      if (bg) {
+                        bg.style.transform = "translate(0px, 0px)";
+                      }
+                    }}
+                    className="relative text-white cursor-pointer p-3 overflow-visible bg-transparent"
                   >
-                    <path
-                      d="M24 8L8 24M8 8L24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </button>
+                    <svg
+                      width="28"
+                      height="28"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="close-icon sm:w-8 sm:h-8 transition-transform duration-200 ease-out"
+                    >
+                      <path
+                        d="M24 8L8 24M8 8L24 24"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
               <div className="flex flex-col h-full px-6 sm:px-8 md:px-12 pt-8 sm:pt-10 md:pt-12 pb-8 sm:pb-10 md:pb-12">

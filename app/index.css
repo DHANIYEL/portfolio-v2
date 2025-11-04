@@ -2,22 +2,23 @@
 .hover-button {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .effect-button::before,
 .hover-button::before {
   content: '';
   position: absolute;
-  top: var(--mouse-y, 30%);
-  left: var(--mouse-x, 30%);
+  top: var(--mouse-y, 50%);
+  left: var(--mouse-x, 50%);
   width: 0;
   height: 0;
-  border-radius: 30%;
+  border-radius: 50%;
   background: #be5cff;
-  transform: translate(-30%, -30%);
+  transform: translate(-50%, -50%);
   transition: width 0.6s ease, height 0.6s ease;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
 }
 
 .effect-button:hover::before,

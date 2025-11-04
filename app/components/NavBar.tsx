@@ -18,7 +18,7 @@ const NavBar = () => {
           ))}
         </ul>
         <div>
-          <HoverButton className="effect-button">Contact</HoverButton>
+          <HoverButton>Contact</HoverButton>
         </div>
       </nav>
     </header>

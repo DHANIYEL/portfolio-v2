@@ -12,7 +12,10 @@ const HoverButton: React.FC<HoverButtonProps> = ({
   className = "",
   onClick,
 }) => {
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
+
   const handleButtonMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -21,11 +24,19 @@ const HoverButton: React.FC<HoverButtonProps> = ({
     e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
   };
 
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
     <button
+      ref={buttonRef}
       onMouseMove={handleButtonMouseMove}
-      onClick={onClick}
-      className={`hover-button relative overflow-hidden px-6 py-2 border border-white cursor-pointer rounded-full transition-all duration-300 ${className}`}
+      onClick={handleClick}
+      className={`hover-button relative overflow-hidden effect-button px-6 py-2 border border-white cursor-pointer rounded-full transition-all duration-300 ${className}`}
     >
       <span className="relative z-10">{children}</span>
     </button>

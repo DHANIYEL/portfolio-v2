@@ -2,6 +2,7 @@
 
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
+import HoverButton from "@/app/components/HoverButton";
 
 const projects = [
   {
@@ -76,12 +77,7 @@ export default function ProjectPage() {
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Project not found</h1>
-          <button
-            onClick={() => router.push("/")}
-            className="px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300"
-          >
-            Go Home
-          </button>
+          <HoverButton onClick={() => router.push("/")}>Go Home</HoverButton>
         </div>
       </div>
     );
@@ -89,12 +85,9 @@ export default function ProjectPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <button
-        onClick={() => router.push("/")}
-        className="fixed top-8 left-8 z-50 px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition-all duration-300"
-      >
-        ← Back
-      </button>
+      <div className="fixed top-8 left-8 z-50">
+        <HoverButton onClick={() => router.push("/")}>← Back</HoverButton>
+      </div>
 
       <div className="container mx-auto px-8 py-20">
         <div className="max-w-6xl mx-auto">

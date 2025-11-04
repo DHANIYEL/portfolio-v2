@@ -1,6 +1,6 @@
 import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
-import './index.css'
+import "./index.css";
 const page = () => {
   return (
     <div>

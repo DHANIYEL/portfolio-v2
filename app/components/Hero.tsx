@@ -1,16 +1,27 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Loader from "./Loader";
 
 const Hero = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-visible bg-black px-4 md:px-8 py-20">
+    <>
+      {isLoading && <Loader onComplete={handleLoadComplete} />}
+      <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-visible bg-black px-4 md:px-8 py-20">
       {/* Main Title - CREATIVE WORLD */}
       <div className="relative z-10 mb-10 md:mb-20">
         <h1 className="text-white font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] text-center tracking-wider leading-none uppercase">
-          DHANIYEL
+          {/* DHANIYEL */}
+          Create
           <br />
-          DARVESH
+          {/* DARVESH */}
+          Designs
         </h1>
 
         {/* Left Card - LIVING COLOR */}
@@ -85,6 +96,7 @@ const Hero = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

@@ -154,23 +154,25 @@ const NavBar = () => {
                   <div className="text-xs uppercase text-gray-400 mb-6 border-b border-gray-700 pb-3">
                     Navigation
                   </div>
-                  {navLinks.map((link, index) => (
-                    <motion.div
-                      key={link.label}
-                      custom={index}
-                      variants={slide}
-                      initial="initial"
-                      animate="enter"
-                      exit="exit"
-                    >
-                      <Link
-                        href={link.href}
-                        className="text-5xl font-light hover:text-[#be5cff] transition-colors duration-300 block py-2"
+                  {navLinks
+                    .filter(({ label }) => label !== "Contact")
+                    .map((link, index) => (
+                      <motion.div
+                        key={link.label}
+                        custom={index}
+                        variants={slide}
+                        initial="initial"
+                        animate="enter"
+                        exit="exit"
                       >
-                        {link.label}
-                      </Link>
-                    </motion.div>
-                  ))}
+                        <Link
+                          href={link.href}
+                          className="text-5xl font-light hover:text-[#be5cff] transition-colors duration-300 block py-2"
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    ))}
                 </div>
 
                 {/* Footer */}

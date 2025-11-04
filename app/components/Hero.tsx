@@ -53,11 +53,11 @@ const Hero = () => {
         {/* Main Title - CREATIVE WORLD */}
         <div className="relative z-10 mb-10 md:mb-20">
           <h1 className="text-white font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] text-center tracking-wider leading-none uppercase fade-in">
-            {/* DHANIYEL */}
-            Create
+            DHANIYEL
+            {/* Create */}
             <br />
-            {/* DARVESH */}
-            Designs
+            DARVESH
+            {/* Designs */}
           </h1>
         </div>
 

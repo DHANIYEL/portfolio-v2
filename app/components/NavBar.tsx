@@ -49,8 +49,11 @@ const NavBar = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full text-white z-50 bg-black/50 backdrop-blur-sm">
-        <nav className="flex w-full items-center justify-between px-8 py-5">
+      <header
+        className="fixed top-0 left-0 w-full text-white backdrop-blur-sm"
+        style={{ zIndex: 80 }}
+      >
+        <nav className="flex w-full items-center justify-between px-8 py-5 bg-black/50">
           {/* Empty spacer for mobile to push hamburger to right */}
           <div className="md:hidden"></div>
 
@@ -75,24 +78,47 @@ const NavBar = () => {
               <HoverButton>Contact</HoverButton>
             </div>
 
-            {/* Mobile Menu Button - Right Side */}
+            {/* Mobile Menu Button - Right Side - Stays on top */}
             <button
               onClick={() => setIsActive(!isActive)}
-              className="md:hidden p-2 text-white"
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+
+                // Calculate magnetic pull (max 10px movement)
+                const deltaX = (mouseX - centerX) * 0.3;
+                const deltaY = (mouseY - centerY) * 0.3;
+
+                const icon = e.currentTarget.querySelector('.hamburger-icon') as HTMLElement;
+                if (icon) {
+                  icon.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                }
+              }}
+              onMouseLeave={(e) => {
+                const icon = e.currentTarget.querySelector('.hamburger-icon') as HTMLElement;
+                if (icon) {
+                  icon.style.transform = 'translate(0px, 0px)';
+                }
+              }}
+              className="md:hidden relative p-5 text-white cursor-pointer group rounded-full bg-[#be5cff] overflow-visible"
+              style={{ zIndex: 80 }}
             >
-              <div className="flex flex-col gap-1.5 w-6">
+              <div className="hamburger-icon flex flex-col gap-1.5 w-6 transition-transform duration-200 ease-out">
                 <span
-                  className={`block h-0.5 bg-white transition-transform ${
+                  className={`block h-0.5 bg-white transition-all duration-300 ${
                     isActive ? "rotate-45 translate-y-2" : ""
                   }`}
                 ></span>
                 <span
-                  className={`block h-0.5 bg-white transition-opacity ${
+                  className={`block h-0.5 bg-white transition-all duration-300 ${
                     isActive ? "opacity-0" : ""
                   }`}
                 ></span>
                 <span
-                  className={`block h-0.5 bg-white transition-transform ${
+                  className={`block h-0.5 bg-white transition-all duration-300 ${
                     isActive ? "-rotate-45 -translate-y-2" : ""
                   }`}
                 ></span>
@@ -121,23 +147,43 @@ const NavBar = () => {
               initial="initial"
               animate="enter"
               exit="exit"
-              className="fixed right-0 top-0 h-screen bg-[#1a1a1a] text-white z-[70] shadow-2xl"
-              style={{ width: "400px" }}
+              className="fixed right-0 top-0 h-screen bg-[#1a1a1a] text-white z-[70] shadow-2xl w-full sm:w-[400px] max-w-[400px]"
             >
               {/* Top section with Close button and Contact */}
-              <div className="flex items-center justify-between px-8 py-6 border-b border-gray-800">
-                <HoverButton>Contact</HoverButton>
-
+              <div className="flex items-center justify-end px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 border-b border-gray-800">
                 <button
                   onClick={() => setIsActive(false)}
-                  className="text-white hover:text-[#be5cff] transition-colors cursor-pointer"
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const mouseX = e.clientX - rect.left;
+                    const mouseY = e.clientY - rect.top;
+
+                    // Calculate magnetic pull (max 10px movement)
+                    const deltaX = (mouseX - centerX) * 0.3;
+                    const deltaY = (mouseY - centerY) * 0.3;
+
+                    const icon = e.currentTarget.querySelector('.close-icon') as HTMLElement;
+                    if (icon) {
+                      icon.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    const icon = e.currentTarget.querySelector('.close-icon') as HTMLElement;
+                    if (icon) {
+                      icon.style.transform = 'translate(0px, 0px)';
+                    }
+                  }}
+                  className="relative text-white cursor-pointer rounded-full bg-[#be5cff] p-3 overflow-visible"
                 >
                   <svg
-                    width="32"
-                    height="32"
+                    width="28"
+                    height="28"
                     viewBox="0 0 32 32"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="close-icon sm:w-8 sm:h-8 transition-transform duration-200 ease-out"
                   >
                     <path
                       d="M24 8L8 24M8 8L24 24"
@@ -149,13 +195,13 @@ const NavBar = () => {
                 </button>
               </div>
 
-              <div className="flex flex-col h-full px-12 pt-12 pb-12">
-                <div className="flex flex-col gap-3">
-                  <div className="text-xs uppercase text-gray-400 mb-6 border-b border-gray-700 pb-3">
+              <div className="flex flex-col h-full px-6 sm:px-8 md:px-12 pt-8 sm:pt-10 md:pt-12 pb-8 sm:pb-10 md:pb-12">
+                <div className="flex flex-col gap-2 sm:gap-3">
+                  <div className="text-[0.65rem] sm:text-xs uppercase text-gray-400 mb-4 sm:mb-6 border-b border-gray-700 pb-2 sm:pb-3">
                     Navigation
                   </div>
                   {navLinks
-                    .filter(({ label }) => label !== "Contact")
+                    // .filter(({ label }) => label !== "Contact")
                     .map((link, index) => (
                       <motion.div
                         key={link.label}
@@ -167,9 +213,13 @@ const NavBar = () => {
                       >
                         <Link
                           href={link.href}
-                          className="text-5xl font-light hover:text-[#be5cff] transition-colors duration-300 block py-2"
+                          className="text-3xl sm:text-4xl md:text-5xl font-light hover:text-[#be5cff] transition-colors duration-300 block py-1 sm:py-2"
                         >
-                          {link.label}
+                          {link.label === "Contact" ? (
+                            <HoverButton>Contact</HoverButton>
+                          ) : (
+                            link.label
+                          )}
                         </Link>
                       </motion.div>
                     ))}
@@ -177,7 +227,7 @@ const NavBar = () => {
 
                 {/* Footer */}
                 <div className="mt-auto">
-                  <div className="flex gap-6 text-sm">
+                  <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm">
                     <a
                       href="#"
                       className="hover:text-[#be5cff] transition-colors"

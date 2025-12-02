@@ -55,11 +55,11 @@ const Hero = () => {
       },
     });
 
-    tl.fromTo(
-      ".text-scale",
-      { scale: 1, opacity: 1 },
-      { scale: 0.6, opacity: 0.6, ease: "power2.out" }
-    );
+    // tl.fromTo(
+    //   ".text-scale",
+    //   { scale: 1, opacity: 1 },
+    //   { scale: 0.6, opacity: 0.6, ease: "power2.out" }
+    // );
   }, [isLoading]);
   return (
     <>

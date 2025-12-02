@@ -3,6 +3,7 @@ import { Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import "./index.css";
+import Cursor from "./components/Cursor";
 
 const afterFont = localFont({
   src: "./fonts/After-Regular.woff", // Font in app/fonts/
@@ -30,6 +31,8 @@ export default function RootLayout({
       <body
         className={`${afterFont.variable} ${geistMono.variable} antialiased font-[family-name:var(--font-after)]`}
       >
+        <Cursor />
+        <div id="cursor-circle"></div>
         {children}
       </body>
     </html>

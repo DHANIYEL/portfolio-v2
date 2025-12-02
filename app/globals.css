@@ -1,4 +1,7 @@
 @import "tailwindcss";
+* {
+  cursor: none !important;
+}
 
 body {
   background-color: black;
@@ -42,4 +45,31 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+#cursor-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8); /* outline only */
+  background: transparent; /* no fill */
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, border 0.25s ease,
+    background 0.25s ease, mix-blend-mode 0.25s ease;
+  z-index: 9999;
+
+  /* This makes cursor invert or "mask" content behind it */
+  mix-blend-mode: difference;
+}
+a:hover ~ #cursor-circle,
+p:hover ~ #cursor-circle,
+span:hover ~ #cursor-circle,
+button:hover ~ #cursor-circle,
+.hover-grow:hover ~ #cursor-circle {
+  width: 75px;
+  height: 75px;
+  border-width: 1px;
 }

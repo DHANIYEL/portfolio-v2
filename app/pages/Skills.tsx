@@ -141,7 +141,7 @@ const Skills = () => {
               {skills.map((skill, index) => (
                 <div
                   key={index}
-                  className="skill-tag absolute px-6 py-3 bg-white text-primary rounded-full font-bold shadow-lg select-none"
+                  className="skill-tag absolute px-6 py-3 bg-white text-primary rounded-full font-bold shadow-2xl select-none"
                   style={{ willChange: "transform" }}
                 >
                   {skill.name}

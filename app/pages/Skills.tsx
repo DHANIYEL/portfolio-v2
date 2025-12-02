@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { skills } from "../constants";
 
 const Skills = () => {
@@ -45,24 +46,27 @@ const Skills = () => {
           <div className="relative z-10 min-h-[300px] md:min-h-[350px]">
             <div className="relative w-full h-full flex flex-wrap items-center justify-center gap-3 md:gap-4">
               {skills.map((skill, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="animate-float"
+                  drag
+                  dragMomentum={false}
+                  whileDrag={{ scale: 1.15, zIndex: 20 }}
+                  className="cursor-grab active:cursor-grabbing"
                   style={{
-                    animationDelay: skill.delay,
-                    animationDuration: "3s",
-                    transform: `rotate(${skill.rotation})`,
+                    position: "absolute",
+                    top: skill.initialY,
+                    left: skill.initialX,
                   }}
                 >
-                  <div
-                    className="bg-white text-primary px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-base lg:text-lg shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap"
-                    style={{
-                      transform: `rotate(${skill.rotation})`,
-                    }}
+                  <motion.div
+                    className="bg-white text-primary px-6 py-3 md:px-8 md:py-4 rounded-full 
+               font-semibold text-sm md:text-base lg:text-lg shadow-xl 
+               hover:shadow-2xl transition-all duration-300 whitespace-nowrap"
+                    whileHover={{ scale: 1.1 }}
                   >
                     {skill.name}
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               ))}
             </div>
           </div>

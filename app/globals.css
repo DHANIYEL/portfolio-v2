@@ -4,9 +4,9 @@
   --color-primary: #be5cff;
 }
 
-* {
+/* * {
   cursor: none !important;
-}
+} */
 
 body {
   background-color: black;

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import "./index.css";
 
 const afterFont = localFont({
   src: "./fonts/After-Regular.woff", // Font in app/fonts/

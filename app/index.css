@@ -7,7 +7,7 @@
 
 .effect-button::before,
 .hover-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: var(--mouse-y, 50%);
   left: var(--mouse-x, 50%);
@@ -18,7 +18,7 @@
   transform: translate(-50%, -50%);
   transition: width 0.6s ease, height 0.6s ease;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 }
 
 .effect-button:hover::before,
@@ -31,4 +31,3 @@
 .hover-button:hover {
   border-color: #be5cff;
 }
-

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Loader from "./Loader";
+import Loader from "../components/Loader";
 import gsap from "gsap/all";
 import { useGSAP } from "@gsap/react";
 

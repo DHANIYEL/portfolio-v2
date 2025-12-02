@@ -1,10 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { navLinks } from "../constants";
-import HoverButton from "./HoverButton";
+import HoverButton from "../components/HoverButton";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-import Curve from "./Curve";
+import Curve from "../components/Curve";
 import Link from "next/link";
 
 const menuSlide = {

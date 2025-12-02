@@ -1,4 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #be5cff;
+}
+
 * {
   cursor: none !important;
 }

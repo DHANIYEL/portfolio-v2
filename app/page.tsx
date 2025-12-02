@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-import NavBar from "./components/NavBar";
-import Hero from "./components/Hero";
-import About from "./components/About";
+import NavBar from "./pages/NavBar";
+import Hero from "./pages/Hero";
+import About from "./pages/About";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Skills from "./pages/Skills";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,7 @@ export default function Page() {
       <NavBar />
       <Hero />
       <About />
+      <Skills />
     </div>
   );
 }

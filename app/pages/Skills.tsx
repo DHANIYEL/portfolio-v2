@@ -7,7 +7,6 @@ const Skills = () => {
       {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-
       </div>
 
       <div className="relative z-10 max-w-7xl w-full mx-auto">
@@ -56,7 +55,7 @@ const Skills = () => {
                   }}
                 >
                   <div
-                    className="bg-white text-primary px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-base lg:text-lg shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap"
+                    className="bg-white text-primary px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-base lg:text-lg shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 cursor-pointer whitespace-nowrap"
                     style={{
                       transform: `rotate(${skill.rotation})`,
                     }}

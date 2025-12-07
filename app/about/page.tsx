@@ -130,7 +130,7 @@ const About = () => {
                     key={index}
                     className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium border transition-all duration-300 hover:scale-105 ${
                       interest === "MATCHA"
-                        ? "bg-[#be5cff] border-[#be5cff] text-white"
+                        ? "bg-[#F28C0F] border-[#F28C0F] text-white"
                         : "bg-transparent border-white text-white hover:bg-white hover:text-black"
                     }`}
                   >

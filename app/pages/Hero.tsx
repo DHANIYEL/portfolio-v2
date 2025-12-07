@@ -64,7 +64,7 @@ const Hero = () => {
   return (
     <>
       {isLoading && <Loader onComplete={handleLoadComplete} />}
-      <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-visible bg-black px-4 md:px-8 py-20">
+      <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-visible px-4 md:px-8 py-20">
         {/* Main Title - CREATIVE WORLD */}
         <div className="relative z-10 mb-10 md:mb-20">
           <h1 className="text-white font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] text-center tracking-wider leading-none uppercase fade-in text-scale">

@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #FFFFFA !important;
   font-family: var(--font-after), sans-serif;
 }
 

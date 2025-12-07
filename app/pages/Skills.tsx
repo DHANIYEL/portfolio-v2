@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { skills } from "../constants";
 import Matter from "matter-js";
 
-// Updated Code
 const Skills = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 

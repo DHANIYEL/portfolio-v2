@@ -53,7 +53,7 @@ const NavBar = () => {
         className="fixed top-0 left-0 w-full text-primary md:backdrop-blur-sm"
         style={{ zIndex: 50 }}
       >
-        <nav className="flex w-full items-center justify-between px-8 py-5 md:bg-black/0">
+        <nav className="flex w-full items-center justify-between px-8 py-5 md:bg-white/0">
           {/* Empty spacer for mobile to push hamburger to right */}
           <div className="md:hidden"></div>
 
@@ -126,21 +126,21 @@ const NavBar = () => {
                     bg.style.transform = "translate(0px, 0px)";
                   }
                 }}
-                className="relative p-5 text-black cursor-pointer group overflow-visible bg-transparent"
+                className="relative p-5 text-white cursor-pointer group overflow-visible bg-transparent"
               >
                 <div className="hamburger-icon flex flex-col gap-1.5 w-6 transition-transform duration-200 ease-out">
                   <span
-                    className={`block h-0.5 bg-black transition-all duration-300 ${
+                    className={`block h-0.5 bg-white transition-all duration-300 ${
                       isActive ? "rotate-45 translate-y-2" : ""
                     }`}
                   ></span>
                   <span
-                    className={`block h-0.5 bg-black transition-all duration-300 ${
+                    className={`block h-0.5 bg-white transition-all duration-300 ${
                       isActive ? "opacity-0" : ""
                     }`}
                   ></span>
                   <span
-                    className={`block h-0.5 bg-black transition-all duration-300 ${
+                    className={`block h-0.5 bg-white transition-all duration-300 ${
                       isActive ? "-rotate-45 -translate-y-2" : ""
                     }`}
                   ></span>
@@ -161,7 +161,7 @@ const NavBar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[30]"
+              className="fixed inset-0 bg-white/50 backdrop-blur-sm z-[30]"
               onClick={() => setIsActive(false)}
             />
 
@@ -170,7 +170,7 @@ const NavBar = () => {
               initial="initial"
               animate="enter"
               exit="exit"
-              className="fixed right-0 top-0 h-screen bg-[#1a1a1a] text-black z-[40] shadow-2xl w-full sm:w-[400px] max-w-[400px]"
+              className="fixed right-0 top-0 h-screen bg-[#1a1a1a] text-white z-[40] shadow-2xl w-full sm:w-[400px] max-w-[400px]"
             >
               {/* Top section with Close button and Contact */}
               {/* <div className="flex items-center justify-end px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 border-b border-gray-800">
@@ -221,7 +221,7 @@ const NavBar = () => {
                         bg.style.transform = "translate(0px, 0px)";
                       }
                     }}
-                    className="relative text-black cursor-pointer p-3 overflow-visible bg-transparent"
+                    className="relative text-white cursor-pointer p-3 overflow-visible bg-transparent"
                   >
                     <svg
                       width="28"

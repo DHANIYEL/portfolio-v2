@@ -67,7 +67,7 @@ const Hero = () => {
       <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-visible px-4 md:px-8 py-20">
         {/* Main Title - CREATIVE WORLD */}
         <div className="relative z-10 mb-10 md:mb-20">
-          <h1 className="text-white font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] text-center tracking-wider leading-none uppercase fade-in text-scale">
+          <h1 className="text-primary font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] text-center tracking-wider leading-none uppercase fade-in text-scale">
             DHANIYEL
             {/* Create */}
             <br />
@@ -77,7 +77,7 @@ const Hero = () => {
         </div>
 
         {/* Bottom Text */}
-        <div className="absolute bottom-4 left-3 sm:bottom-6 sm:left-6 md:bottom-8 md:left-8 lg:bottom-12 lg:left-12 text-white max-w-[45%] sm:max-w-[50%] md:max-w-none">
+        <div className="absolute bottom-4 left-3 sm:bottom-6 sm:left-6 md:bottom-8 md:left-8 lg:bottom-12 lg:left-12 text-black max-w-[45%] sm:max-w-[50%] md:max-w-none">
           <p className="text-[0.6rem] leading-tight sm:text-xs sm:leading-normal md:text-sm lg:text-base uppercase tracking-wide">
             {/* HI, DHANIYEL DARVESH
           <br /> */}
@@ -99,7 +99,7 @@ const Hero = () => {
               ].map((word, index) => (
                 <span
                   key={index}
-                  className="cursor-pointer hover:text-white transition-colors duration-300 inline-block mr-1"
+                  className="cursor-pointer hover:text-black transition-colors duration-300 inline-block mr-1"
                 >
                   {word}
                 </span>
@@ -109,7 +109,7 @@ const Hero = () => {
         </div>
 
         {/* Since Year */}
-        <div className="absolute bottom-4 right-3 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 text-white">
+        <div className="absolute bottom-4 right-3 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 text-black">
           <p className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-4xl font-bold tracking-wider fade-left">
             SINCE 2020
           </p>

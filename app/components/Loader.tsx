@@ -68,7 +68,7 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
         {/* Progress Bar Container */}
         <div className="w-full h-1 bg-gray-800 overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-[#a855f7] to-[#be5cff]"
+            className="h-full bg-gradient-to-r from-[#a855f7] to-primary"
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -77,7 +77,7 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
 
         {/* Progress Percentage */}
         <motion.p
-          className="mt-10 text-white text-lg font-medium absolute"
+          className="mt-10 text-black text-lg font-medium absolute"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}

@@ -50,10 +50,10 @@ const NavBar = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full text-white md:backdrop-blur-sm"
+        className="fixed top-0 left-0 w-full text-primary md:backdrop-blur-sm"
         style={{ zIndex: 50 }}
       >
-        <nav className="flex w-full items-center justify-between px-8 py-5 md:bg-black/50">
+        <nav className="flex w-full items-center justify-between px-8 py-5 md:bg-black/0">
           {/* Empty spacer for mobile to push hamburger to right */}
           <div className="md:hidden"></div>
 
@@ -64,7 +64,7 @@ const NavBar = () => {
               .map(({ label, href }) => (
                 <li
                   key={label}
-                  className="cursor-pointer px-4 py-2 text-sm hover:text-[#be5cff] transition-colors duration-300"
+                  className="cursor-pointer px-4 py-2 text-sm hover:text-primary transition-colors duration-300"
                 >
                   <Link href={href}>{label}</Link>
                 </li>
@@ -81,7 +81,7 @@ const NavBar = () => {
             {/* Mobile Menu Button - Right Side - Stays on top */}
             <div className="md:hidden relative" style={{ zIndex: 999 }}>
               <div
-                className="hamburger-bg absolute inset-0 rounded-full bg-[#be5cff] transition-transform duration-200 ease-out"
+                className="hamburger-bg absolute inset-0 rounded-full bg-primary transition-transform duration-200 ease-out"
                 style={{ willChange: "transform" }}
               ></div>
               <button
@@ -126,21 +126,21 @@ const NavBar = () => {
                     bg.style.transform = "translate(0px, 0px)";
                   }
                 }}
-                className="relative p-5 text-white cursor-pointer group overflow-visible bg-transparent"
+                className="relative p-5 text-black cursor-pointer group overflow-visible bg-transparent"
               >
                 <div className="hamburger-icon flex flex-col gap-1.5 w-6 transition-transform duration-200 ease-out">
                   <span
-                    className={`block h-0.5 bg-white transition-all duration-300 ${
+                    className={`block h-0.5 bg-black transition-all duration-300 ${
                       isActive ? "rotate-45 translate-y-2" : ""
                     }`}
                   ></span>
                   <span
-                    className={`block h-0.5 bg-white transition-all duration-300 ${
+                    className={`block h-0.5 bg-black transition-all duration-300 ${
                       isActive ? "opacity-0" : ""
                     }`}
                   ></span>
                   <span
-                    className={`block h-0.5 bg-white transition-all duration-300 ${
+                    className={`block h-0.5 bg-black transition-all duration-300 ${
                       isActive ? "-rotate-45 -translate-y-2" : ""
                     }`}
                   ></span>
@@ -170,13 +170,13 @@ const NavBar = () => {
               initial="initial"
               animate="enter"
               exit="exit"
-              className="fixed right-0 top-0 h-screen bg-[#1a1a1a] text-white z-[40] shadow-2xl w-full sm:w-[400px] max-w-[400px]"
+              className="fixed right-0 top-0 h-screen bg-[#1a1a1a] text-black z-[40] shadow-2xl w-full sm:w-[400px] max-w-[400px]"
             >
               {/* Top section with Close button and Contact */}
               {/* <div className="flex items-center justify-end px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 border-b border-gray-800">
                 <div className="relative">
                   <div
-                    className="close-bg absolute inset-0 rounded-full bg-[#be5cff] transition-transform duration-200 ease-out"
+                    className="close-bg absolute inset-0 rounded-full bg-primary transition-transform duration-200 ease-out"
                     style={{ willChange: "transform" }}
                   ></div>
                   <button
@@ -221,7 +221,7 @@ const NavBar = () => {
                         bg.style.transform = "translate(0px, 0px)";
                       }
                     }}
-                    className="relative text-white cursor-pointer p-3 overflow-visible bg-transparent"
+                    className="relative text-black cursor-pointer p-3 overflow-visible bg-transparent"
                   >
                     <svg
                       width="28"
@@ -260,7 +260,7 @@ const NavBar = () => {
                       >
                         <Link
                           href={link.href}
-                          className="text-3xl sm:text-4xl md:text-5xl font-light hover:text-[#be5cff] transition-colors duration-300 block py-1 sm:py-2"
+                          className="text-3xl sm:text-4xl md:text-5xl font-light hover:text-primary transition-colors duration-300 block py-1 sm:py-2"
                         >
                           {link.label}
                         </Link>
@@ -273,19 +273,19 @@ const NavBar = () => {
                   <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm">
                     <a
                       href="#"
-                      className="hover:text-[#be5cff] transition-colors"
+                      className="hover:text-primary transition-colors"
                     >
                       GitHub
                     </a>
                     <a
                       href="#"
-                      className="hover:text-[#be5cff] transition-colors"
+                      className="hover:text-primary transition-colors"
                     >
                       LinkedIn
                     </a>
                     <a
                       href="#"
-                      className="hover:text-[#be5cff] transition-colors"
+                      className="hover:text-primary transition-colors"
                     >
                       Twitter
                     </a>

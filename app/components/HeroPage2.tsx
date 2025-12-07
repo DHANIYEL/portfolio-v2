@@ -231,7 +231,7 @@ const Hero = () => {
 
       {/* Main Title */}
       <div className="relative z-20 mix-blend-difference">
-        <h1 className="text-white font-bold text-5xl md:text-9xl text-center tracking-wider leading-tight">
+        <h1 className="text-black font-bold text-5xl md:text-9xl text-center tracking-wider leading-tight">
           CREATE
           <br />
           PAGE

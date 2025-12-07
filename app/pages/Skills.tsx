@@ -4,7 +4,7 @@ import { skills } from "../constants";
 import Matter from "matter-js";
 
 const Skills = () => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;

@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #be5cff;
+  --color-primary: #f4835e;
+  --color-secondary: #fffffa;
+  --color-third: #1e1e1e;
 }
 
 * {
@@ -9,20 +11,8 @@
 }
 
 body {
-  background-color: black;
+  background-color: #fffffa !important;
   font-family: var(--font-after), sans-serif;
-}
-
-@layer base {
-  :root {
-    --color-primary: #be5cff;
-    --color-secondary: #1e1e1e;
-  }
-
-  .dark {
-    --color-primary: #9333ea;
-    --color-secondary: #111111;
-  }
 }
 
 /* Define custom utilities OUTSIDE of @layer components */

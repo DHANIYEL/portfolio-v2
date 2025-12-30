@@ -74,7 +74,7 @@ export default function ProjectPage() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="min-h-screen bg-black text-black flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Project not found</h1>
           <HoverButton onClick={() => router.push("/")}>Go Home</HoverButton>
@@ -84,7 +84,7 @@ export default function ProjectPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-black">
       <div className="fixed top-8 left-8 z-50">
         <HoverButton onClick={() => router.push("/")}>← Back</HoverButton>
       </div>
@@ -111,7 +111,7 @@ export default function ProjectPage() {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-4 py-2 bg-[#be5cff] rounded-full text-sm"
+                  className="px-4 py-2 bg-primary rounded-full text-sm"
                 >
                   {tech}
                 </span>
@@ -122,13 +122,13 @@ export default function ProjectPage() {
           <div className="flex gap-4">
             <button
               onClick={() => window.open(project.liveUrl, "_blank")}
-              className="px-8 py-3 bg-white text-black rounded-full font-semibold hover:bg-[#be5cff] hover:text-white transition-all duration-300"
+              className="px-8 py-3 bg-black text-black rounded-full font-semibold hover:bg-primary hover:text-black transition-all duration-300"
             >
               View Live
             </button>
             <button
               onClick={() => window.open(project.githubUrl, "_blank")}
-              className="px-8 py-3 border border-white rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300"
+              className="px-8 py-3 border border-black rounded-full font-semibold hover:bg-black hover:text-black transition-all duration-300"
             >
               GitHub
             </button>

@@ -72,7 +72,7 @@ const About = () => {
   return (
     <>
       {isLoading && <Loader onComplete={handleLoadComplete} />}
-      <div className="relative min-h-screen w-full bg-black text-white px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32">
+      <div className="relative min-h-screen w-full bg-black text-black px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
             {/* Left Side - Card with Image Placeholder */}
@@ -82,7 +82,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400"></div>
 
                 {/* Bottom Card Overlay */}
-                <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+                <div className="absolute bottom-8 left-8 right-8 bg-black/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-black text-2xl font-bold uppercase tracking-wide">
                       A GLIMPSE INTO MY
@@ -130,8 +130,8 @@ const About = () => {
                     key={index}
                     className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium border transition-all duration-300 hover:scale-105 ${
                       interest === "MATCHA"
-                        ? "bg-[#be5cff] border-[#be5cff] text-white"
-                        : "bg-transparent border-white text-white hover:bg-white hover:text-black"
+                        ? "bg-[#F28C0F] border-[#F28C0F] text-black"
+                        : "bg-transparent border-black text-black hover:bg-black hover:text-black"
                     }`}
                   >
                     {interest}

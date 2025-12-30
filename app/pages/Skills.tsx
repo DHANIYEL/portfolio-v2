@@ -93,10 +93,10 @@ const Skills = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full bg-black text-white px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32 flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen w-full text-black px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32 flex items-center justify-center overflow-hidden">
       {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-full h-full bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl w-full mx-auto">
@@ -109,7 +109,7 @@ const Skills = () => {
         </div>
 
         {/* Skills card */}
-        <div className="relative rounded-3xl md:rounded-[3rem] bg-primary p-8 sm:p-10 md:p-12 lg:p-16 !pb-0 shadow-2xl overflow-hidden">
+        <div className="relative rounded-3xl md:rounded-[3rem] bg-primary p-8 sm:p-10 md:p-12 lg:p-16 !px-0 !pb-0 shadow-2xl overflow-hidden">
           {/* Animated background pattern */}
           <div className="absolute inset-0 opacity-10">
             <div
@@ -124,7 +124,7 @@ const Skills = () => {
 
           {/* Description text */}
           <div className="relative z-10 mb-12 md:mb-16 max-w-2xl">
-            <p className="text-white text-base sm:text-lg md:text-xl leading-relaxed font-medium">
+            <p className="text-black text-base sm:text-lg md:text-xl leading-relaxed font-medium px-10">
               I transform ideas into compelling visuals that leave a lasting
               impact. From bold graphic designs to intricate 3D modeling, my
               work bridges creativity and functionality.
@@ -141,7 +141,7 @@ const Skills = () => {
               {skills.map((skill, index) => (
                 <div
                   key={index}
-                  className="skill-tag absolute px-6 py-3 bg-white text-primary rounded-full font-bold shadow-2xl select-none"
+                  className="skill-tag absolute px-6 py-3 bg-black text-primary rounded-full font-bold shadow-2xl select-none"
                   style={{ willChange: "transform" }}
                 >
                   {skill.name}

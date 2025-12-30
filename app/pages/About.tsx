@@ -63,7 +63,11 @@ const About = () => {
   ];
 
   return (
-    <div className="relative min-h-screen w-full bg-black text-white px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32">
+    <div className="relative min-h-screen w-full text-black px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div className="absolute top-1/2 right-1/2 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+      </div>
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* Left Side - Card with Image Placeholder */}
@@ -73,12 +77,12 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400"></div>
 
               {/* Bottom Card Overlay */}
-              <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+              <div className="absolute bottom-8 left-8 right-8 bg-black backdrop-blur-sm rounded-2xl p-6 shadow-xl">
                 <div className="flex items-center gap-3 mb-2">
-                  <h3 className="text-black text-2xl font-bold uppercase tracking-wide">
+                  <h3 className="text-primary text-2xl font-bold uppercase tracking-wide">
                     A GLIMPSE INTO MY
                   </h3>
-                  <div className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full border-2 border-primary flex items-center justify-center">
                     <svg
                       width="20"
                       height="20"
@@ -86,13 +90,13 @@ const About = () => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
-                      className="text-black"
+                      className="text-primary"
                     >
                       <path d="M7 17L17 7M17 7H7M17 7V17" />
                     </svg>
                   </div>
                 </div>
-                <h3 className="text-black text-2xl font-bold uppercase tracking-wide">
+                <h3 className="text-primary text-2xl font-bold uppercase tracking-wide">
                   CREATIVE WORLD
                 </h3>
               </div>
@@ -107,7 +111,7 @@ const About = () => {
               just what I do
             </h1>
 
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl">
               Every project I take on is a reflection of my passion for
               creativity, a journey where colors, shapes, and ideas come
               together to tell a story. This portfolio represents more than
@@ -122,8 +126,8 @@ const About = () => {
                   key={index}
                   className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium border transition-all duration-300 hover:scale-105 ${
                     interest === "MATCHA"
-                      ? "bg-[#be5cff] border-[#be5cff] text-white"
-                      : "bg-transparent border-white text-white hover:bg-white hover:text-black"
+                      ? "bg-primary border-primary text-white"
+                      : "bg-transparent border-primary text-primary hover:bg-primary hover:text-white"
                   }`}
                 >
                   {interest}

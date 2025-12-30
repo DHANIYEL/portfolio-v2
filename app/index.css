@@ -14,7 +14,7 @@
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: #be5cff;
+  background: #f4835e;
   transform: translate(-50%, -50%);
   transition: width 0.6s ease, height 0.6s ease;
   pointer-events: none;
@@ -29,5 +29,5 @@
 
 .effect-button:hover,
 .hover-button:hover {
-  border-color: #be5cff;
+  border-color: #f4835e;
 }

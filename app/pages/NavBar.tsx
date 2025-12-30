@@ -50,10 +50,10 @@ const NavBar = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full text-white md:backdrop-blur-sm"
+        className="fixed top-0 left-0 w-full text-primary md:backdrop-blur-sm"
         style={{ zIndex: 50 }}
       >
-        <nav className="flex w-full items-center justify-between px-8 py-5 md:bg-black/50">
+        <nav className="flex w-full items-center justify-between px-8 py-5 md:bg-white/0">
           {/* Empty spacer for mobile to push hamburger to right */}
           <div className="md:hidden"></div>
 
@@ -64,7 +64,7 @@ const NavBar = () => {
               .map(({ label, href }) => (
                 <li
                   key={label}
-                  className="cursor-pointer px-4 py-2 text-sm hover:text-[#be5cff] transition-colors duration-300"
+                  className="cursor-pointer px-4 py-2 text-sm hover:text-primary transition-colors duration-300"
                 >
                   <Link href={href}>{label}</Link>
                 </li>
@@ -81,7 +81,7 @@ const NavBar = () => {
             {/* Mobile Menu Button - Right Side - Stays on top */}
             <div className="md:hidden relative" style={{ zIndex: 999 }}>
               <div
-                className="hamburger-bg absolute inset-0 rounded-full bg-[#be5cff] transition-transform duration-200 ease-out"
+                className="hamburger-bg absolute inset-0 rounded-full bg-primary transition-transform duration-200 ease-out"
                 style={{ willChange: "transform" }}
               ></div>
               <button
@@ -161,7 +161,7 @@ const NavBar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[30]"
+              className="fixed inset-0 bg-white/50 backdrop-blur-sm z-[30]"
               onClick={() => setIsActive(false)}
             />
 
@@ -176,7 +176,7 @@ const NavBar = () => {
               {/* <div className="flex items-center justify-end px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 border-b border-gray-800">
                 <div className="relative">
                   <div
-                    className="close-bg absolute inset-0 rounded-full bg-[#be5cff] transition-transform duration-200 ease-out"
+                    className="close-bg absolute inset-0 rounded-full bg-primary transition-transform duration-200 ease-out"
                     style={{ willChange: "transform" }}
                   ></div>
                   <button
@@ -260,7 +260,7 @@ const NavBar = () => {
                       >
                         <Link
                           href={link.href}
-                          className="text-3xl sm:text-4xl md:text-5xl font-light hover:text-[#be5cff] transition-colors duration-300 block py-1 sm:py-2"
+                          className="text-3xl sm:text-4xl md:text-5xl font-light hover:text-primary transition-colors duration-300 block py-1 sm:py-2"
                         >
                           {link.label}
                         </Link>
@@ -273,19 +273,19 @@ const NavBar = () => {
                   <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm">
                     <a
                       href="#"
-                      className="hover:text-[#be5cff] transition-colors"
+                      className="hover:text-primary transition-colors"
                     >
                       GitHub
                     </a>
                     <a
                       href="#"
-                      className="hover:text-[#be5cff] transition-colors"
+                      className="hover:text-primary transition-colors"
                     >
                       LinkedIn
                     </a>
                     <a
                       href="#"
-                      className="hover:text-[#be5cff] transition-colors"
+                      className="hover:text-primary transition-colors"
                     >
                       Twitter
                     </a>

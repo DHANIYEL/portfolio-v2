@@ -1,5 +1,4 @@
-import React from "react";
-
+import { Projects } from "../constants/index";
 const projects = () => {
   return (
     <section className="main-container">

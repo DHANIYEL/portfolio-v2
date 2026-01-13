@@ -109,7 +109,7 @@ export const Projects = [
     level: "INTERMEDIATE",
     tag: "BRANDING",
     description: "High-impact visuals and motion-driven brand storytelling.",
-    bg: "var(--color-secondary)",
+    bg: "var(--color-third)",
     images: {
       main: "/images/arc-main.jpg",
       secondary: "/images/arc-detail.jpg",

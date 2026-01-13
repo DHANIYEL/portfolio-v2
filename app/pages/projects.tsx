@@ -1,5 +1,6 @@
+import ProjectCard from "../components/ProjectCard";
 import { Projects } from "../constants/index";
-const projects = () => {
+const ProjectPage = () => {
   return (
     <section className="main-container">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -13,9 +14,14 @@ const projects = () => {
             My most impactful and innovative works
           </h2>
         </div>
+        <div>
+          {Projects.map((item) => {
+            return <ProjectCard key={item.id} data={item} />;
+          })}
+        </div>
       </div>
     </section>
   );
 };
 
-export default projects;
+export default ProjectPage;

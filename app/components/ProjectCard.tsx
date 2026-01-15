@@ -2,66 +2,86 @@ import React from "react";
 
 const ProjectCard = ({ data, index }) => {
   return (
-    <section className="">
-      {/* sticky wrapper */}
-      <div className="relative min-h-[100vh] w-full overflow-y-auto">
+    <section className="w-full">
+      {/* ✅ give scroll space for sticky */}
+      <div className="relative min-h-[180vh] w-full">
         <div
-          className="w-full max-w-[1200px] mx-auto min-h-[90vh] rounded-3xl flex flex-col p-12 shadow-2xl sticky top-8 overflow-hidden"
+          className="
+            sticky top-4 sm:top-6 md:top-8
+            w-full max-w-[1200px] mx-auto
+            min-h-[85vh] sm:min-h-[90vh]
+            rounded-2xl sm:rounded-3xl
+            flex flex-col
+            p-5 sm:p-8 md:p-12
+            shadow-2xl
+            overflow-hidden
+          "
           style={{
             background: data.bg,
-            transform: `translateY(${index * 20}px)`,
+            transform: `translateY(${index * 14}px)`,
           }}
         >
           {/* Header with tags */}
-          <div className="flex justify-between items-start mb-12">
-            <div className="border-2 border-white/40 rounded-full px-6 py-2">
-              <span className="text-white text-sm font-medium tracking-wide">
+          <div className="flex justify-between items-start gap-3 mb-6 sm:mb-10 md:mb-12">
+            <div className="border border-white/40 rounded-full px-3 py-1.5 sm:px-5 sm:py-2">
+              <span className="text-white text-[11px] sm:text-sm font-medium tracking-wide">
                 {data.tag}
               </span>
             </div>
-            <div className="border-2 border-white/40 rounded-full px-6 py-2">
-              <span className="text-white text-sm font-medium tracking-wide">
+
+            <div className="border border-white/40 rounded-full px-3 py-1.5 sm:px-5 sm:py-2">
+              <span className="text-white text-[11px] sm:text-sm font-medium tracking-wide">
                 {data.level}
               </span>
             </div>
           </div>
 
           {/* Main title */}
-          <div className="mb-auto">
-            <h1 className="text-[180px] font-black text-white leading-none tracking-tight">
+          <div className="mb-6 sm:mb-auto">
+            <h1
+              className="
+                font-black text-white leading-none tracking-tight
+                text-[56px] xs:text-[64px]
+                sm:text-[90px]
+                md:text-[120px]
+                lg:text-[160px]
+              "
+            >
               {data.title}
             </h1>
           </div>
 
-          {/* Content grid - Two columns */}
-          <div className="grid grid-cols-2 gap-8 items-end">
-            {/* Left column - Image placeholder */}
-            <div className="bg-white/20 backdrop-blur-sm rounded-3xl aspect-[4/3] shadow-xl"></div>
+          {/* Content grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-8 items-end">
+            {/* Left - Image placeholder */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl sm:rounded-3xl aspect-[4/3] shadow-xl" />
 
-            {/* Right column - Subtitle and description */}
-            <div className="space-y-6">
-              <h2 className="text-5xl font-light text-white leading-tight">
+            {/* Right - Subtitle + desc */}
+            <div className="space-y-4 sm:space-y-5 md:space-y-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white leading-tight">
                 {data.subtitle}
               </h2>
-              <p className="text-white/90 text-lg leading-relaxed font-light">
+
+              <p className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed font-light">
                 {data.description}
               </p>
             </div>
           </div>
 
-          {/* Bottom section - CTA and image */}
-          <div className="grid grid-cols-2 gap-8 mt-12 items-start">
-            {/* Left column - CTA */}
+          {/* Bottom section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-8 mt-6 sm:mt-10 md:mt-12 items-start">
+            {/* Left - CTA */}
             <div>
-              <p className="text-white/80 text-base leading-relaxed mb-6 font-light">
+              <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 font-light">
                 Explore a variety of projects across branding, 3D design, and
                 interactive experiences, each crafted with precision and
                 passion.
               </p>
-              <button className="flex items-center gap-3 text-white text-lg font-medium hover:gap-5 transition-all duration-300 group">
+
+              <button className="flex items-center gap-2 sm:gap-3 text-white text-base sm:text-lg font-medium hover:gap-4 sm:hover:gap-5 transition-all duration-300 group">
                 See More
                 <svg
-                  className="w-6 h-6 transform group-hover:translate-x-1 transition-transform"
+                  className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -76,8 +96,8 @@ const ProjectCard = ({ data, index }) => {
               </button>
             </div>
 
-            {/* Right column - Image placeholder */}
-            <div className="bg-white/20 backdrop-blur-sm rounded-3xl aspect-[16/9] shadow-xl"></div>
+            {/* Right - Image placeholder */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl sm:rounded-3xl aspect-[16/9] shadow-xl" />
           </div>
         </div>
       </div>

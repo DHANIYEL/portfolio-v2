@@ -109,7 +109,7 @@ export const Projects = [
     level: "INTERMEDIATE",
     tag: "BRANDING",
     description: "High-impact visuals and motion-driven brand storytelling.",
-    bg: "var(--color-third)",
+    bg: "var(--color-primary)",
     images: {
       main: "https://placehold.co/600x400",
       secondary: "https://placehold.co/400",

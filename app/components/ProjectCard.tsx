@@ -1,9 +1,15 @@
 import React from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const ProjectCard = ({ data, index }) => {
+  useGSAP(() => {
+    const card = gsap.utils.toArray(".card");
+    console.log(card);
+  });
+
   return (
     <section className="w-full">
-      {/* ✅ give scroll space for sticky */}
       <div className="relative min-h-[180vh] w-full">
         <div
           className="
@@ -15,6 +21,7 @@ const ProjectCard = ({ data, index }) => {
             p-5 sm:p-8 md:p-12
             shadow-2xl
             overflow-hidden
+            card
           "
           style={{
             background: data.bg,
@@ -53,10 +60,16 @@ const ProjectCard = ({ data, index }) => {
 
           {/* Content grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-8 items-end">
-            {/* Left - Image placeholder */}
-            <div className="bg-white/20 backdrop-blur-sm rounded-2xl sm:rounded-3xl aspect-[4/3] shadow-xl" />
+            {/* ✅ Left column - MAIN IMAGE */}
+            <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
+              <img
+                src={data.images.main}
+                alt={`${data.title} main`}
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-            {/* Right - Subtitle + desc */}
+            {/* Right column - Subtitle & description */}
             <div className="space-y-4 sm:space-y-5 md:space-y-6">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white leading-tight">
                 {data.subtitle}
@@ -70,7 +83,7 @@ const ProjectCard = ({ data, index }) => {
 
           {/* Bottom section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-8 mt-6 sm:mt-10 md:mt-12 items-start">
-            {/* Left - CTA */}
+            {/* Left column - CTA */}
             <div>
               <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 font-light">
                 Explore a variety of projects across branding, 3D design, and
@@ -96,8 +109,14 @@ const ProjectCard = ({ data, index }) => {
               </button>
             </div>
 
-            {/* Right - Image placeholder */}
-            <div className="bg-white/20 backdrop-blur-sm rounded-2xl sm:rounded-3xl aspect-[16/9] shadow-xl" />
+            {/* ✅ Right column - SECONDARY IMAGE */}
+            <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl aspect-[16/9]">
+              <img
+                src={data.images.secondary}
+                alt={`${data.title} secondary`}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>

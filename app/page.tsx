@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Page() {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative">
       <NavBar />
       <Hero />
       <About />

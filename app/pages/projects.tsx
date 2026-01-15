@@ -15,8 +15,8 @@ const ProjectPage = () => {
           </h2>
         </div>
         <div>
-          {Projects.map((item) => {
-            return <ProjectCard key={item.id} data={item} />;
+          {Projects.map((item, index) => {
+            return <ProjectCard key={item.id} data={item} index={index} />;
           })}
         </div>
       </div>

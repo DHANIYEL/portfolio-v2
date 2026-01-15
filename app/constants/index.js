@@ -84,8 +84,8 @@ export const Projects = [
       "Transforming brand identities through dynamic design and bold concepts.",
     bg: "var(--color-primary)",
     images: {
-      main: "/images/arc-main.jpg",
-      secondary: "/images/arc-detail.jpg",
+      main: "https://placehold.co/600x400",
+      secondary: "https://placehold.co/400",
     },
   },
   {
@@ -96,10 +96,10 @@ export const Projects = [
     tag: "BRANDING",
     description:
       "A minimal yet expressive branding system for modern businesses.",
-    bg: "var(--color-secondary)",
+    bg: "var(--color-third)",
     images: {
-      main: "/images/arc-main.jpg",
-      secondary: "/images/arc-detail.jpg",
+      main: "https://placehold.co/600x400",
+      secondary: "https://placehold.co/400",
     },
   },
   {
@@ -111,8 +111,8 @@ export const Projects = [
     description: "High-impact visuals and motion-driven brand storytelling.",
     bg: "var(--color-third)",
     images: {
-      main: "/images/arc-main.jpg",
-      secondary: "/images/arc-detail.jpg",
+      main: "https://placehold.co/600x400",
+      secondary: "https://placehold.co/400",
     },
   },
 ];

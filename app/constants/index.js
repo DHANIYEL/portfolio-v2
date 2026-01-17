@@ -82,7 +82,7 @@ export const Projects = [
     tag: "BRANDING",
     description:
       "Transforming brand identities through dynamic design and bold concepts.",
-    bg: "var(--color-primary)",
+    color: "var(--color-primary)",
     images: {
       main: "https://placehold.co/600x400",
       secondary: "https://placehold.co/400",
@@ -96,7 +96,7 @@ export const Projects = [
     tag: "BRANDING",
     description:
       "A minimal yet expressive branding system for modern businesses.",
-    bg: "var(--color-third)",
+    color: "var(--color-third)",
     images: {
       main: "https://placehold.co/600x400",
       secondary: "https://placehold.co/400",
@@ -109,7 +109,7 @@ export const Projects = [
     level: "INTERMEDIATE",
     tag: "BRANDING",
     description: "High-impact visuals and motion-driven brand storytelling.",
-    bg: "var(--color-primary)",
+    color: "var(--color-primary)",
     images: {
       main: "https://placehold.co/600x400",
       secondary: "https://placehold.co/400",

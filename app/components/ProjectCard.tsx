@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectCard = ({ data }: any) => {
   return (
-    <section className="card-section w-full">
+    <section className="card-section w-full my-52 ">
       <div
         className="
           card
@@ -13,7 +13,6 @@ const ProjectCard = ({ data }: any) => {
           p-5 sm:p-8 md:p-12
           shadow-2xl
           overflow-hidden
-          mb-52
         "
         style={{ background: data.bg }}
       >

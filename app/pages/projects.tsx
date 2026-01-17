@@ -13,81 +13,79 @@ gsap.registerPlugin(ScrollTrigger);
 const ProjectsPage = () => {
   const containerRef = useRef(null);
 
-  useGSAP(
-    () => {
-      const cards = gsap.utils.toArray<HTMLElement>(".card");
+useGSAP(() => {
+  const cards = gsap.utils.toArray<HTMLElement>(".card");
 
-      cards.forEach((card, i) => {
-        const img = card.querySelector(".img-wrapper img");
-        const texts = card.querySelectorAll(".card-content");
+  const topOffset = 200; // ✅ space from top (navbar safe)
 
-        // ✅ Set initial state ONLY for this card
-        gsap.set(img, {
-          clipPath: "polygon(0 0, 0 100%, 0 100%, 0 0)",
-          autoAlpha: 0,
-        });
+  cards.forEach((card, i) => {
+    const img = card.querySelector(".img-wrapper img");
+    const texts = card.querySelectorAll(".card-content");
 
-        gsap.set(texts, {
-          y: 20,
-          autoAlpha: 0,
-        });
+    gsap.set(img, {
+      clipPath: "polygon(0 0, 0 100%, 0 100%, 0 0)",
+      autoAlpha: 0,
+    });
 
-        // ✅ Smooth stacking pin
-        ScrollTrigger.create({
-          trigger: card,
-          start: "top top",
-          end: "+=100%",
-          pin: true,
-          pinSpacing: false,
-          scrub: 1, // ✅ smooth pin scrub
-        });
+    gsap.set(texts, {
+      y: 20,
+      autoAlpha: 0,
+    });
 
-        // ✅ Smooth scale effect
-        gsap.to(card, {
-          scale: 1 - i * 0.03,
-          ease: "none",
-          scrollTrigger: {
-            trigger: card,
-            start: "top top",
-            end: "+=100%",
-            scrub: 1,
-          },
-        });
+    // ✅ PIN with top spacing
+    ScrollTrigger.create({
+      trigger: card,
+      start: `top+=${topOffset} top`,
+      end: `+=${window.innerHeight}`,
+      pin: true,
+      pinSpacing: false,
+      scrub: 1,
+      anticipatePin: 1,
+    });
 
-        // ✅ Clip + text reveal controlled by scroll (reversible)
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: card,
-              start: "top 70%",
-              end: "top 20%",
-              scrub: 1, // ✅ reversible
-            },
-          })
-          .to(img, {
-            clipPath: "polygon(0 0, 0 100%, 100% 100%, 100% 0)",
-            autoAlpha: 1,
-            duration: 1,
-            ease: "power2.out",
-          })
-          .to(
-            texts,
-            {
-              y: 0,
-              autoAlpha: 1,
-              duration: 0.6,
-              stagger: 0.1,
-              ease: "power2.out",
-            },
-            "-=0.5"
-          );
-      });
+    // ✅ Scale stacking smooth
+    gsap.to(card, {
+      scale: 1 - i * 0.03,
+      ease: "none",
+      scrollTrigger: {
+        trigger: card,
+        start: `top+=${topOffset} top`,
+        end: `+=${window.innerHeight}`,
+        scrub: 1,
+      },
+    });
 
-      // ✅ important: refresh after setup
-      ScrollTrigger.refresh();
-    },
-    { scope: containerRef }
-  );
+    // ✅ Reveal reversible
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: card,
+        start: `top+=${topOffset + 150} top`,
+        end: `top+=${topOffset} top`,
+        scrub: 1,
+      },
+    })
+      .to(img, {
+        clipPath: "polygon(0 0, 0 100%, 100% 100%, 100% 0)",
+        autoAlpha: 1,
+        duration: 1,
+        ease: "power2.out",
+      })
+      .to(
+        texts,
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power2.out",
+        },
+        "-=0.5"
+      );
+  });
+
+  ScrollTrigger.refresh();
+}, { scope: containerRef });
+
 
   return (
     <section className="relative min-h-screen w-full text-black px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32 overflow-hidden">

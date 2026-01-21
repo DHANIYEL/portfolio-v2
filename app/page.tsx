@@ -7,7 +7,7 @@ import About from "./pages/About";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Skills from "./pages/Skills";
-import ProjectsPage from "./pages/Projects";
+import ProjectsPage from "./pages/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 

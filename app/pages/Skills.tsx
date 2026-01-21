@@ -93,11 +93,11 @@ const Skills = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full text-black px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32 flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen w-full text-black px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32 overflow-hidden">
       {/* Background gradient effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-full h-full bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-      </div>
+      </div> */}
 
       <div className="relative z-10 max-w-7xl w-full mx-auto">
         {/* Main heading */}

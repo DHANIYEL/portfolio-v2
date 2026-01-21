@@ -71,3 +71,48 @@ export const skills = [
     initialY: 330,
   },
 ];
+
+// constants/index.ts
+export const Projects = [
+  {
+    id: 1,
+    title: "DATA",
+    subtitle: "Innovative Branding Solutions",
+    level: "INTERMEDIATE",
+    tag: "BRANDING",
+    description:
+      "Transforming brand identities through dynamic design and bold concepts.",
+    color: "var(--color-primary)",
+    images: {
+      main: "https://placehold.co/600x400",
+      secondary: "https://placehold.co/400",
+    },
+  },
+  {
+    id: 2,
+    title: "COFFEE",
+    subtitle: "Modern Visual Identity",
+    level: "INTERMEDIATE",
+    tag: "BRANDING",
+    description:
+      "A minimal yet expressive branding system for modern businesses.",
+    color: "var(--color-third)",
+    images: {
+      main: "https://placehold.co/600x400",
+      secondary: "https://placehold.co/400",
+    },
+  },
+  {
+    id: 3,
+    title: "PAPA",
+    subtitle: "Creative Direction",
+    level: "INTERMEDIATE",
+    tag: "BRANDING",
+    description: "High-impact visuals and motion-driven brand storytelling.",
+    color: "var(--color-primary)",
+    images: {
+      main: "https://placehold.co/600x400",
+      secondary: "https://placehold.co/400",
+    },
+  },
+];

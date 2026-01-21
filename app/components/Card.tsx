@@ -77,60 +77,60 @@ const Card = ({
       opacity: 0,
     });
 
-    // ✅ Create timeline with scrub for continuous scroll animation
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
-        start: "top 70%",
-        toggleActions: "play none none reverse",
+        start: "top 80%",
+        end: "top 20%",
+        scrub: 1,
       },
     });
 
     tl.to(elements.header, {
       opacity: 1,
       y: 0,
-      duration: 0.6,
-      ease: "power3.out",
-    }).to(
-      elements.title,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power3.out",
-      },
-      "-=0.3",
-    );
-
-    if (elements.subtitle) {
-      tl.to(
+      duration: 1,
+      ease: "none",
+    })
+      .to(
+        elements.title,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "none",
+        },
+        0.1,
+      )
+      .to(
         elements.subtitle,
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
-          ease: "power3.out",
+          duration: 1,
+          ease: "none",
         },
-        "-=0.3",
+        0.2,
+      )
+      .to(
+        elements.description,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "none",
+        },
+        0.3,
+      )
+      .to(
+        elements.imageInner,
+        {
+          clipPath: "inset(0 0% 0 0)",
+          duration: 2,
+          ease: "none",
+        },
+        0.4,
       );
-    }
-
-    tl.to(
-      elements.description,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power3.out",
-      },
-      "-=0.3",
-    )
-    //   .to({}, { duration: 0.4 }) // delay before image
-      .to(elements.imageInner, {
-        clipPath: "inset(0 0% 0 0)",
-        duration: 0.8,
-        ease: "power2.inOut",
-      });
 
     return () => {
       tl.kill();

@@ -80,25 +80,26 @@ const Card = ({
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: el,
-        start: "top 80%",
-        end: "top 20%",
+        start: "top 95%",
+        end: "top -10%",
         scrub: 1,
+        markers: true,
       },
     });
 
     tl.to(elements.header, {
       opacity: 1,
       y: 0,
-      duration: 1,
-      ease: "none",
+      duration: 1.3,
+      ease: "power1.in",
     })
       .to(
         elements.title,
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          ease: "none",
+          duration: 1.3,
+          ease: "power1.in",
         },
         0.1,
       )
@@ -107,8 +108,8 @@ const Card = ({
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          ease: "none",
+          duration: 1.3,
+          ease: "power1.in",
         },
         0.2,
       )
@@ -117,8 +118,8 @@ const Card = ({
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          ease: "none",
+          duration: 1.3,
+          ease: "power1.in",
         },
         0.3,
       )

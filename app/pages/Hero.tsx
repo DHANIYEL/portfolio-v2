@@ -1,19 +1,19 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Loader from "../components/Loader";
+// import Loader from "../components/Loader";
 import gsap from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
 const Hero = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleLoadComplete = () => {
-    setIsLoading(false);
-  };
+  // const handleLoadComplete = () => {
+  //   setIsLoading(false);
+  // };
 
   useGSAP(() => {
-    if (!isLoading) {
+    if (true) {
       gsap.fromTo(
         ".fade-in",
         { opacity: 0, y: 30 },
@@ -63,7 +63,7 @@ const Hero = () => {
   }, [isLoading]);
   return (
     <>
-      {isLoading && <Loader onComplete={handleLoadComplete} />}
+      {/* {isLoading && <Loader onComplete={handleLoadComplete} />} */}
       <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-visible px-4 md:px-8 py-20">
         {/* Main Title - CREATIVE WORLD */}
         <div className="relative z-10 mb-10 md:mb-20">

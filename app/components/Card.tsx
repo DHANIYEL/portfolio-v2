@@ -1,0 +1,187 @@
+// components/Card.tsx
+"use client";
+import { useEffect, useRef } from "react";
+import styles from "../assets/styles/enhanced.module.scss";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+interface CardProps {
+  i: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  images?: {
+    main: string;
+  };
+  color: string;
+  tag: string;
+  level: string;
+}
+
+const Card = ({
+  i,
+  title,
+  subtitle,
+  description,
+  images,
+  color,
+  tag,
+  level,
+}: CardProps) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const descriptionRef = useRef<HTMLDivElement>(null);
+  const imageInnerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+
+    const elements = {
+      header: headerRef.current,
+      title: titleRef.current,
+      subtitle: subtitleRef.current,
+      description: descriptionRef.current,
+      imageInner: imageInnerRef.current,
+    };
+
+    // Check if critical elements exist
+    if (
+      !elements.imageInner ||
+      !elements.header ||
+      !elements.title ||
+      !elements.description
+    ) {
+      console.warn("Critical elements not found in card", i);
+      return;
+    }
+
+    // ✅ Set initial states
+    gsap.set(elements.imageInner, {
+      clipPath: "inset(0 100% 0 0)",
+    });
+
+    const textElements = [
+      elements.header,
+      elements.title,
+      elements.subtitle,
+      elements.description,
+    ].filter(Boolean);
+
+    gsap.set(textElements, {
+      y: 30,
+      opacity: 0,
+    });
+
+    // ✅ Create timeline with scrub for continuous scroll animation
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: "top 70%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    tl.to(elements.header, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: "power3.out",
+    }).to(
+      elements.title,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power3.out",
+      },
+      "-=0.3",
+    );
+
+    if (elements.subtitle) {
+      tl.to(
+        elements.subtitle,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power3.out",
+        },
+        "-=0.3",
+      );
+    }
+
+    tl.to(
+      elements.description,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power3.out",
+      },
+      "-=0.3",
+    )
+    //   .to({}, { duration: 0.4 }) // delay before image
+      .to(elements.imageInner, {
+        clipPath: "inset(0 0% 0 0)",
+        duration: 0.8,
+        ease: "power2.inOut",
+      });
+
+    return () => {
+      tl.kill();
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars.trigger === el) {
+          trigger.kill();
+        }
+      });
+    };
+  }, [i]);
+
+  return (
+    <div
+      ref={cardRef}
+      className={styles.cardContainer}
+      style={{ "--index": i } as React.CSSProperties}
+    >
+      <div className={styles.card} style={{ backgroundColor: color }}>
+        <div ref={headerRef} className={styles.header}>
+          <div className={styles.tag}>
+            <span>{tag}</span>
+          </div>
+          <div className={styles.tag}>
+            <span>{level}</span>
+          </div>
+        </div>
+
+        <h2 ref={titleRef}>{title}</h2>
+
+        <p ref={subtitleRef} style={{ marginTop: "6px", opacity: 0.85 }}>
+          {subtitle}
+        </p>
+
+        <div className={styles.body}>
+          <div ref={descriptionRef} className={styles.description}>
+            <p>{description}</p>
+          </div>
+
+          <div className={styles.imageContainer}>
+            <div ref={imageInnerRef} className={styles.inner}>
+              <img
+                src={images?.main}
+                alt={title}
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Card;

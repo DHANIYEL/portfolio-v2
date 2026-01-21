@@ -3,7 +3,7 @@
   min-height: 100vh;
   width: 100%;
   padding: 5rem 2rem;
-  background: #0a0a0a;
+  background: #1e1e1e;
 }
 
 .heading {
@@ -11,7 +11,7 @@
   margin: 0 auto 4rem;
   display: flex;
   justify-content: flex-end;
-  
+
   h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
@@ -35,11 +35,11 @@
   justify-content: center;
   position: sticky;
   top: 0;
-  
+
   --card-index: var(--index, 0);
-  --scale: calc(1 - (var(--card-index) * 0.05));
+  --scale: calc(1 + (var(--card-index) * 0.05));
   --offset: calc(var(--card-index) * 40px);
-  
+
   .card {
     display: flex;
     flex-direction: column;
@@ -51,25 +51,29 @@
     padding: 40px;
     transform-origin: top center;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    
+
     // Initial state
-    transform: scale(0.8) translateY(100px);
-    opacity: 0;
-    
+    // transform: scale(0.8) translateY(100px);
+    // opacity: 0;
+
+    // ✅ Keep card visible, let GSAP animate children
+    transform: scale(var(--scale)) translateY(var(--offset));
+    opacity: 1;
+
     // Smooth transition
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    
+
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 2rem;
-      
+
       .tag {
         border: 1px solid rgba(255, 255, 255, 0.4);
         border-radius: 50px;
         padding: 0.4rem 1rem;
-        
+
         span {
           color: white;
           font-size: 0.75rem;
@@ -78,7 +82,7 @@
         }
       }
     }
-    
+
     h2 {
       text-align: left;
       margin: 0;
@@ -88,12 +92,12 @@
       letter-spacing: -2px;
       line-height: 0.9;
       text-transform: uppercase;
-      
+
       @media (max-width: 768px) {
         font-size: 3.5rem;
       }
     }
-    
+
     // Subtitle styling
     > p {
       text-align: left;
@@ -103,22 +107,22 @@
       margin-top: 0.5rem;
       margin-bottom: 0;
       line-height: 1.4;
-      
+
       @media (max-width: 768px) {
         font-size: 1rem;
       }
     }
-    
+
     .body {
       display: flex;
       flex-direction: column;
       gap: 20px;
       margin-top: 2rem;
       flex: 1;
-      
+
       .description {
         width: 100%;
-        
+
         p {
           font-size: 0.875rem;
           line-height: 1.5;
@@ -127,7 +131,7 @@
           font-weight: 300;
         }
       }
-      
+
       .imageContainer {
         position: relative;
         width: 100%;
@@ -136,16 +140,16 @@
         overflow: hidden;
         background: rgba(255, 255, 255, 0.15);
         flex-shrink: 0;
-        
+
         .inner {
           width: 100%;
           height: 100%;
           position: relative;
-          
+
           // Initial scale
           transform: scale(1.3);
           transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-          
+
           img {
             width: 100%;
             height: 100%;
@@ -155,13 +159,27 @@
       }
     }
   }
-  
+
+  .cardContainer {
+    .header,
+    h2,
+    p,
+    .description {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .inner {
+      clip-path: inset(0 100% 0 0);
+    }
+  }
+
   // When card becomes visible
   &.visible {
     .card {
       transform: scale(var(--scale)) translateY(var(--offset));
       opacity: 1;
-      
+
       .imageContainer .inner {
         transform: scale(1);
       }
@@ -173,7 +191,7 @@
 @media (max-width: 1024px) {
   .cardContainer {
     --offset: calc(var(--card-index) * 30px);
-    
+
     .card {
       max-width: 450px;
       height: 550px;
@@ -185,27 +203,27 @@
   .projectsSection {
     padding: 3rem 1rem;
   }
-  
+
   .cardContainer {
     height: auto;
     min-height: 100vh;
     --scale: calc(1 - (var(--card-index) * 0.03));
     --offset: calc(var(--card-index) * 20px);
-    
+
     .card {
       height: auto;
       min-height: 500px;
       max-width: 100%;
       padding: 30px;
-      
+
       h2 {
         font-size: 3rem;
       }
-      
+
       > p {
         font-size: 0.95rem;
       }
-      
+
       .body {
         .imageContainer {
           height: 150px;
@@ -219,11 +237,11 @@
   .cardContainer {
     .card {
       padding: 25px;
-      
+
       h2 {
         font-size: 2.5rem;
       }
-      
+
       .body {
         .imageContainer {
           height: 120px;

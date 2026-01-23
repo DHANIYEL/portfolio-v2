@@ -14,7 +14,6 @@ const HoverButton: React.FC<HoverButtonProps> = ({
   onClick,
   hoverColor = "hsl(var(--primary))",
 }) => {
-  console.log(hoverColor)
   const handleButtonMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     const rect = e.currentTarget.getBoundingClientRect();

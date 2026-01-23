@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Skills from "./pages/Skills";
 import ProjectsPage from "./pages/projects";
 import ExperiencePage from "./pages/ExperiencePage";
+import Footer from "./pages/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,6 +39,7 @@ export default function Page() {
         <Skills />
         <ProjectsPage />
         <ExperiencePage />
+        <Footer />
       </div>
     </div>
   );

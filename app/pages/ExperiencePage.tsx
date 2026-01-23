@@ -4,6 +4,7 @@ import React from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {ExperienceData} from '../constants/index'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,26 +78,7 @@ const ExperiencePage = () => {
     );
   }, []);
 
-  const timelineData = [
-    {
-      title: "Foundation of Creativity",
-      description:
-        "Started as a curious mind, diving into the world of design. Experimented with various styles and techniques to build a solid foundation.",
-      period: "2020 - 2024",
-    },
-    {
-      title: "Growth and Innovation",
-      description:
-        "Refined my craft by embracing new technologies and approaches. Worked on impactful projects that pushed the boundaries of traditional design.",
-      period: "2020 - 2024",
-    },
-    {
-      title: "Mastering the Art",
-      description:
-        "Evolved into a professional designer, delivering exceptional results for clients worldwide. Focused on creating immersive visuals and storytelling.",
-      period: "2020 - 2024",
-    },
-  ];
+  const timelineData = ExperienceData
 
   return (
     <div className="relative min-h-screen w-full bg-secondary text-black px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32">
@@ -112,7 +94,7 @@ const ExperiencePage = () => {
 
         {/* Large Purple Card */}
         <div className="exp-card mb-16 md:mb-20 lg:mb-24">
-          <div className="w-full h-[300px] sm:h-[350px] md:h-[400px] bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl shadow-2xl"></div>
+          <div className="w-full h-[300px] sm:h-[350px] md:h-[400px] bg-gradient-to-br from-secondary to-primary rounded-3xl shadow-2xl"></div>
         </div>
 
         {/* Content Grid */}
@@ -129,14 +111,14 @@ const ExperiencePage = () => {
           {/* Right Side - Timeline */}
           <div className="timeline-container relative">
             {/* Vertical Line */}
-            <div className="absolute left-0 top-4 bottom-4 w-[2px] bg-purple-500/30 hidden sm:block"></div>
+            <div className="absolute left-0 top-4 bottom-4 w-[2px] bg-primary hidden sm:block"></div>
 
             {/* Timeline Items */}
             <div className="space-y-12 md:space-y-16">
               {timelineData.map((item, index) => (
                 <div key={index} className="timeline-item relative pl-0 sm:pl-8">
                   {/* Dot */}
-                  <div className="absolute left-[-4px] top-0 w-2 h-2 rounded-full bg-purple-500 hidden sm:block"></div>
+                  <div className="absolute left-[-4px] top-0 w-2 h-2 rounded-full bg-primary hidden sm:block"></div>
 
                   {/* Content */}
                   <div>
@@ -146,7 +128,7 @@ const ExperiencePage = () => {
                     <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-3">
                       {item.description}
                     </p>
-                    <span className="inline-block px-4 py-1.5 bg-purple-500 text-white text-xs sm:text-sm rounded-full font-medium">
+                    <span className="inline-block px-4 py-1.5 bg-primary text-white text-xs sm:text-sm rounded-full font-medium">
                       {item.period}
                     </span>
                   </div>

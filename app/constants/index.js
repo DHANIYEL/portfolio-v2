@@ -116,3 +116,24 @@ export const Projects = [
     },
   },
 ];
+
+ export const ExperienceData = [
+    {
+      title: "Foundation of Creativity",
+      description:
+        "Started as a curious mind, diving into the world of design. Experimented with various styles and techniques to build a solid foundation.",
+      period: "2020 - 2024",
+    },
+    {
+      title: "Growth and Innovation",
+      description:
+        "Refined my craft by embracing new technologies and approaches. Worked on impactful projects that pushed the boundaries of traditional design.",
+      period: "2020 - 2024",
+    },
+    {
+      title: "Mastering the Art",
+      description:
+        "Evolved into a professional designer, delivering exceptional results for clients worldwide. Focused on creating immersive visuals and storytelling.",
+      period: "2020 - 2024",
+    },
+  ];

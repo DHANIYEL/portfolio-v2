@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import HoverButton from "../components/HoverButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -162,9 +163,10 @@ const Footer = () => {
 
           {/* See More Button */}
           <div className="see-more-btn text-center">
-            <button className="px-8 py-3 border-2 border-white rounded-full text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-all duration-300">
+            {/* <button className="px-8 py-3 border-2 border-white rounded-full text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-all duration-300">
               SEE MORE
-            </button>
+            </button> */}
+            <HoverButton children="See More" className="border-white text-white" />
           </div>
         </div>
       </div>
@@ -208,12 +210,15 @@ const Footer = () => {
                   className="flex-1 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder:text-gray-700 focus:outline-none focus:border-white/40 transition-all"
                   required
                 />
-                <button
+                {/* <button
                   type="submit"
                   className="px-8 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-900 transition-all duration-300"
                 >
                   Send
-                </button>
+                </button> */}
+                  <HoverButton className="bg-third text-white">
+                    Send
+                  </HoverButton>
               </form>
 
               {/* Social Icons */}

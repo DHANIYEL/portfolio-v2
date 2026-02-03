@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { navLinks } from "../constants";
 import HoverButton from "../components/HoverButton";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Curve from "../components/Curve";
 import Link from "next/link";
@@ -40,6 +40,7 @@ const slide = {
 };
 
 const NavBar = () => {
+  const { scrollYProgress } = useScroll();
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
 
@@ -76,7 +77,7 @@ const NavBar = () => {
             {/* Contact Button - Desktop Only */}
             <div className="hidden md:block">
               <Link href="#contact">
-              <HoverButton>Contact</HoverButton>
+                <HoverButton>Contact</HoverButton>
               </Link>
             </div>
 
@@ -100,10 +101,10 @@ const NavBar = () => {
                   const deltaY = (mouseY - centerY) * 0.5;
 
                   const icon = e.currentTarget.querySelector(
-                    ".hamburger-icon"
+                    ".hamburger-icon",
                   ) as HTMLElement;
                   const bg = e.currentTarget.parentElement?.querySelector(
-                    ".hamburger-bg"
+                    ".hamburger-bg",
                   ) as HTMLElement;
 
                   if (icon) {
@@ -115,10 +116,10 @@ const NavBar = () => {
                 }}
                 onMouseLeave={(e) => {
                   const icon = e.currentTarget.querySelector(
-                    ".hamburger-icon"
+                    ".hamburger-icon",
                   ) as HTMLElement;
                   const bg = e.currentTarget.parentElement?.querySelector(
-                    ".hamburger-bg"
+                    ".hamburger-bg",
                   ) as HTMLElement;
 
                   if (icon) {
@@ -151,6 +152,13 @@ const NavBar = () => {
             </div>
           </div>
         </nav>
+        <motion.div
+          className="h-[2px] w-full origin-left"
+          style={{
+            scaleX: scrollYProgress,
+            backgroundColor: "var(--color-primary)",
+          }}
+        />
       </header>
 
       {/* Sliding Menu with Curve */}

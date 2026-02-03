@@ -75,7 +75,9 @@ const NavBar = () => {
           <div className="flex items-center gap-4">
             {/* Contact Button - Desktop Only */}
             <div className="hidden md:block">
+              <Link href="#contact">
               <HoverButton>Contact</HoverButton>
+              </Link>
             </div>
 
             {/* Mobile Menu Button - Right Side - Stays on top */}

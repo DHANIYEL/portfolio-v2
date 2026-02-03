@@ -14,6 +14,9 @@ body {
   background-color: #fffffa !important;
   font-family: var(--font-after), sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 /* Define custom utilities OUTSIDE of @layer components */
 @utility flex-center {

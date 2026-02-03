@@ -111,7 +111,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="relative w-full bg-gradient-to-b from-secondary via-primary/30 to-primary text-black">
+    <div className="relative w-full bg-gradient-to-b from-secondary via-primary/30 to-primary text-black" id="contact">
       {/* Gallery Section */}
       <div className="relative px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32">
         <div className="max-w-[1400px] mx-auto">

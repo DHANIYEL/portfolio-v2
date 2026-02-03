@@ -5,7 +5,7 @@ import Card from "../components/Card";
 
 const ProjectsPage = () => {
   return (
-    <section className={styles.projectsSection}>
+    <section className={styles.projectsSection} id="portfolio">
       <div className={styles.heading}>
         <h1>My most impactful and innovative works</h1>
       </div>

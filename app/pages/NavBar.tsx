@@ -50,7 +50,7 @@ const NavBar = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full text-primary md:backdrop-blur-sm"
+        className="fixed top-0 left-0 w-full text-primary md:backdrop-blur-3xl"
         style={{ zIndex: 50 }}
       >
         <nav className="flex w-full items-center justify-between px-8 py-5 md:bg-white/0">

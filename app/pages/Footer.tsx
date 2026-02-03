@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import HoverButton from "../components/HoverButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -162,15 +163,16 @@ const Footer = () => {
 
           {/* See More Button */}
           <div className="see-more-btn text-center">
-            <button className="px-8 py-3 border-2 border-white rounded-full text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-all duration-300">
+            {/* <button className="px-8 py-3 border-2 border-white rounded-full text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-all duration-300">
               SEE MORE
-            </button>
+            </button> */}
+            <HoverButton children="See More" className="border-white text-white" />
           </div>
         </div>
       </div>
 
       {/* Contact Section with Purple Gradient Background */}
-      <div className="contact-section relative px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32">
+      <div className="contact-section relative px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32 text-white">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Side - Large Title with Image Placeholder */}
@@ -192,7 +194,7 @@ const Footer = () => {
                   <br />
                   Connected
                 </h3>
-                <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                   Consectetur nostris dapibus eu eleifend lacinia metus sodales
                   class ac inroin porttitor amet integer pellentesque
                 </p>
@@ -205,15 +207,18 @@ const Footer = () => {
                   placeholder="Type your E-mail here..."
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder:text-gray-400 focus:outline-none focus:border-white/40 transition-all"
+                  className="flex-1 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder:text-gray-700 focus:outline-none focus:border-white/40 transition-all"
                   required
                 />
-                <button
+                {/* <button
                   type="submit"
                   className="px-8 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-900 transition-all duration-300"
                 >
                   Send
-                </button>
+                </button> */}
+                  <HoverButton className="bg-third text-white">
+                    Send
+                  </HoverButton>
               </form>
 
               {/* Social Icons */}

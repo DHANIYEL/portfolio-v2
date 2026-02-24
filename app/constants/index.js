@@ -7,69 +7,26 @@ export const navLinks = [
 ];
 
 export const skills = [
-  {
-    name: "Motion Graphic",
-    rotation: "-12deg",
-    delay: "0ms",
-    initialX: 120,
-    initialY: 40,
-  },
-  {
-    name: "Storyboard",
-    rotation: "-6deg",
-    delay: "100ms",
-    initialX: 280,
-    initialY: 110,
-  },
-  {
-    name: "Visual Effect",
-    rotation: "0deg",
-    delay: "200ms",
-    initialX: 420,
-    initialY: 80,
-  },
-  {
-    name: "Web Design",
-    rotation: "8deg",
-    delay: "300ms",
-    initialX: 180,
-    initialY: 180,
-  },
-  {
-    name: "UI / UX",
-    rotation: "4deg",
-    delay: "400ms",
-    initialX: 360,
-    initialY: 200,
-  },
-  {
-    name: "Photography & Videography",
-    rotation: "15deg",
-    delay: "500ms",
-    initialX: 80,
-    initialY: 260,
-  },
-  {
-    name: "3D Modeling",
-    rotation: "10deg",
-    delay: "600ms",
-    initialX: 300,
-    initialY: 300,
-  },
-  {
-    name: "Graphic Design",
-    rotation: "-3deg",
-    delay: "700ms",
-    initialX: 450,
-    initialY: 250,
-  },
-  {
-    name: "Digital Manipulation",
-    rotation: "12deg",
-    delay: "800ms",
-    initialX: 200,
-    initialY: 330,
-  },
+  { name: "React.js" },
+  { name: "TypeScript" },
+  { name: "Angular.js" },
+  { name: "Next.js" },
+  { name: "React Native" },
+  { name: "Flutter" },
+  { name: "Dart" },
+  { name: "Node.js" },
+  { name: "Express" },
+  { name: "MongoDB" },
+  { name: "AWS" },
+  { name: "Tailwind CSS" },
+  { name: "Docker" },
+  { name: "REST APIs" },
+  { name: "CI / CD" },
+  { name: "Figma" },
+  { name: "Firebase" },
+  { name: "Supabase" },
+  { name: "App Development" },
+  { name: "Web Development" },
 ];
 
 // constants/index.ts
@@ -117,23 +74,23 @@ export const Projects = [
   },
 ];
 
- export const ExperienceData = [
-    {
-      title: "Foundation of Creativity",
-      description:
-        "Started as a curious mind, diving into the world of design. Experimented with various styles and techniques to build a solid foundation.",
-      period: "2020 - 2024",
-    },
-    {
-      title: "Growth and Innovation",
-      description:
-        "Refined my craft by embracing new technologies and approaches. Worked on impactful projects that pushed the boundaries of traditional design.",
-      period: "2020 - 2024",
-    },
-    {
-      title: "Mastering the Art",
-      description:
-        "Evolved into a professional designer, delivering exceptional results for clients worldwide. Focused on creating immersive visuals and storytelling.",
-      period: "2020 - 2024",
-    },
-  ];
+export const ExperienceData = [
+  {
+    title: "Foundation of Creativity",
+    description:
+      "Started as a curious mind, diving into the world of design. Experimented with various styles and techniques to build a solid foundation.",
+    period: "2020 - 2024",
+  },
+  {
+    title: "Growth and Innovation",
+    description:
+      "Refined my craft by embracing new technologies and approaches. Worked on impactful projects that pushed the boundaries of traditional design.",
+    period: "2020 - 2024",
+  },
+  {
+    title: "Mastering the Art",
+    description:
+      "Evolved into a professional designer, delivering exceptional results for clients worldwide. Focused on creating immersive visuals and storytelling.",
+    period: "2020 - 2024",
+  },
+];

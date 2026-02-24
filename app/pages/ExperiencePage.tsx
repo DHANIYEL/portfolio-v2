@@ -81,7 +81,7 @@ const ExperiencePage = () => {
   const timelineData = ExperienceData
 
   return (
-    <div className="relative min-h-screen w-full bg-secondary text-black px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32">
+    <div className="relative w-full bg-secondary text-black px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32">
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
         <div className="exp-header mb-12 md:mb-16 lg:mb-20">
@@ -93,9 +93,9 @@ const ExperiencePage = () => {
         </div>
 
         {/* Large Purple Card */}
-        <div className="exp-card mb-16 md:mb-20 lg:mb-24">
+        {/* <div className="exp-card mb-16 md:mb-20 lg:mb-24">
           <div className="w-full h-[300px] sm:h-[350px] md:h-[400px] bg-gradient-to-br from-secondary to-primary rounded-3xl shadow-2xl"></div>
-        </div>
+        </div> */}
 
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16">

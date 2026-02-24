@@ -7,12 +7,29 @@
 }
 
 * {
-  /* cursor: none !important; */
+  cursor: none !important;
 }
 
+/* Hide scrollbar for Chrome, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE/Edge */
+body {
+  -ms-overflow-style: none;
+}
 body {
   background-color: #fffffa !important;
   font-family: var(--font-after), sans-serif;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 /* Define custom utilities OUTSIDE of @layer components */
@@ -48,12 +65,17 @@ body {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.8); /* outline only */
+  border: 2px solid #90ee90; /* outline only */
   background: transparent; /* no fill */
+  mix-blend-mode: difference;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: width 0.25s ease, height 0.25s ease, border 0.25s ease,
-    background 0.25s ease, mix-blend-mode 0.25s ease;
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    border 0.25s ease,
+    background 0.25s ease,
+    mix-blend-mode 0.25s ease;
   z-index: 9999;
 
   /* This makes cursor invert or "mask" content behind it */
@@ -67,4 +89,17 @@ button:hover ~ #cursor-circle,
   width: 75px;
   height: 75px;
   border-width: 1px;
+}
+@keyframes liquidFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-liquid {
+  background-size: 200% 100%;
+  animation: liquidFlow 4s linear infinite;
 }

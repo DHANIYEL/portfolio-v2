@@ -111,7 +111,7 @@ const Hero = () => {
         {/* Since Year */}
         <div className="absolute bottom-4 right-3 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 text-black">
           <p className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-4xl font-bold tracking-wider fade-left">
-            SINCE 2020
+            SINCE 2022
           </p>
         </div>
       </div>

@@ -41,7 +41,7 @@ const Skills = () => {
 
     // Physics bodies for each tag
     const skillElements = Array.from(
-      containerRef.current.querySelectorAll(".skill-tag")
+      containerRef.current.querySelectorAll(".skill-tag"),
     );
 
     const bodies = skillElements.map((el, i) => {
@@ -93,7 +93,10 @@ const Skills = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full text-black px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32 overflow-hidden">
+    <section
+      className="relative min-h-screen w-full text-black px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32 overflow-hidden"
+      id="skill"
+    >
       {/* Background gradient effects */}
       {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-full h-full bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
@@ -136,17 +139,24 @@ const Skills = () => {
           <div className="relative z-10 min-h-[300px] md:min-h-[350px]">
             <div
               ref={containerRef}
-              className="relative w-full h-[350px] md:h-[450px] overflow-hidden rounded-xl"
-            >
-              {skills.map((skill, index) => (
-                <div
-                  key={index}
-                  className="skill-tag absolute px-6 py-3 bg-black text-primary rounded-full font-bold shadow-2xl select-none"
-                  style={{ willChange: "transform" }}
-                >
-                  {skill.name}
-                </div>
-              ))}
+className="relative w-full h-[650px] rounded-xl"            >
+              {skills.map((skill, index) => {
+                const randomRotation = `${Math.floor(Math.random() * 30 - 15)}deg`; // -15deg to +15deg
+                const randomX = Math.floor(Math.random() * 500); // width range
+                const randomY = Math.floor(Math.random() * 600); // height range
+
+                return (
+                  <div
+                    key={index}
+                    className="skill-tag absolute px-6 py-3 bg-black text-primary rounded-full font-bold shadow-2xl select-none"
+                    style={{
+                      transform: `translate(${randomX}px, ${randomY}px) rotate(${randomRotation})`,
+                    }}
+                  >
+                    {skill.name}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

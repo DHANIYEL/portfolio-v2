@@ -2,7 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { navLinks } from "../constants";
 import HoverButton from "../components/HoverButton";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { usePathname } from "next/navigation";
 import Curve from "../components/Curve";
 import Link from "next/link";
@@ -40,6 +46,18 @@ const slide = {
 };
 
 const NavBar = () => {
+  const { scrollYProgress } = useScroll();
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+  });
+
+  const visibleProgress = useTransform(
+    smoothProgress,
+    [0, 1],
+    [0.03, 1], // Start at 3% instead of 0%
+  );
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
 
@@ -47,10 +65,14 @@ const NavBar = () => {
     if (isActive) setIsActive(false);
   }, [pathname]);
 
+  const handleNavigate = () => {
+    if (isActive) setIsActive(false);
+    else setIsActive(true);
+  };
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full text-primary md:backdrop-blur-sm"
+        className="fixed top-0 left-0 w-full text-primary md:backdrop-blur-3xl"
         style={{ zIndex: 50 }}
       >
         <nav className="flex w-full items-center justify-between px-8 py-5 md:bg-white/0">
@@ -75,7 +97,9 @@ const NavBar = () => {
           <div className="flex items-center gap-4">
             {/* Contact Button - Desktop Only */}
             <div className="hidden md:block">
-              <HoverButton>Contact</HoverButton>
+              <Link href="#contact">
+                <HoverButton>Contact</HoverButton>
+              </Link>
             </div>
 
             {/* Mobile Menu Button - Right Side - Stays on top */}
@@ -85,7 +109,7 @@ const NavBar = () => {
                 style={{ willChange: "transform" }}
               ></div>
               <button
-                onClick={() => setIsActive(!isActive)}
+                onClick={() => handleNavigate()}
                 onMouseMove={(e) => {
                   const rect = e.currentTarget.getBoundingClientRect();
                   const centerX = rect.width / 2;
@@ -98,10 +122,10 @@ const NavBar = () => {
                   const deltaY = (mouseY - centerY) * 0.5;
 
                   const icon = e.currentTarget.querySelector(
-                    ".hamburger-icon"
+                    ".hamburger-icon",
                   ) as HTMLElement;
                   const bg = e.currentTarget.parentElement?.querySelector(
-                    ".hamburger-bg"
+                    ".hamburger-bg",
                   ) as HTMLElement;
 
                   if (icon) {
@@ -113,10 +137,10 @@ const NavBar = () => {
                 }}
                 onMouseLeave={(e) => {
                   const icon = e.currentTarget.querySelector(
-                    ".hamburger-icon"
+                    ".hamburger-icon",
                   ) as HTMLElement;
                   const bg = e.currentTarget.parentElement?.querySelector(
-                    ".hamburger-bg"
+                    ".hamburger-bg",
                   ) as HTMLElement;
 
                   if (icon) {
@@ -149,6 +173,13 @@ const NavBar = () => {
             </div>
           </div>
         </nav>
+        <motion.div
+          className="fixed top-0 left-0 h-[6px] w-full origin-left z-50 rounded-full"
+          style={{
+            scaleX: visibleProgress,
+            background: "linear-gradient(to right, #f4835e, #ffb199)",
+          }}
+        />
       </header>
 
       {/* Sliding Menu with Curve */}
@@ -259,6 +290,7 @@ const NavBar = () => {
                         exit="exit"
                       >
                         <Link
+                          onClick={() => setIsActive(false)}
                           href={link.href}
                           className="text-3xl sm:text-4xl md:text-5xl font-light hover:text-primary transition-colors duration-300 block py-1 sm:py-2"
                         >
@@ -272,22 +304,34 @@ const NavBar = () => {
                 <div className="mt-auto">
                   <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm">
                     <a
-                      href="#"
+                      href="https://github.com/DHANIYEL"
+                      target="_blank"
                       className="hover:text-primary transition-colors"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub"
+                      onClick={() => setIsActive(false)}
                     >
                       GitHub
                     </a>
                     <a
-                      href="#"
+                      href="https://www.linkedin.com/in/dhaniyel-darvesh-256987280/"
+                      target="_blank"
                       className="hover:text-primary transition-colors"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                      onClick={() => setIsActive(false)}
                     >
                       LinkedIn
                     </a>
                     <a
-                      href="#"
+                      href="https://www.instagram.com/dhaniiiyll/?hl=en"
+                      target="_blank"
                       className="hover:text-primary transition-colors"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                      onClick={() => setIsActive(false)}
                     >
-                      Twitter
+                      Instagram
                     </a>
                   </div>
                 </div>

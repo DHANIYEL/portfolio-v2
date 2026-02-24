@@ -152,31 +152,30 @@ const Footer = () => {
           <div className="relative">
             <div className="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
               {/* Always Visible */}
-              {[carhub, moms, gta].map((img, index) => (
-                <div key={index} className="gallery-item">
-                  <div className="relative w-full aspect-video rounded-3xl overflow-hidden">
-                    <Image
-                      src={img}
-                      alt={`Project ${index + 1}`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 hover:scale-105"
-                      priority
-                    />
+              {[adtract, moms, gta, dexpress, dcars, nearwala].map(
+                (img, index) => (
+                  <div key={index} className="gallery-item">
+                    <div className="relative w-full aspect-video rounded-3xl overflow-hidden">
+                      <Image
+                        src={img}
+                        alt={`Project ${index + 1}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 hover:scale-105"
+                        priority
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
+                ),
+              )}
 
               {/* Conditional (Show More) */}
               {[
-                dexpress,
-                dcars,
                 cloud,
-                nearwala,
                 envai,
                 gemini,
                 institute,
-                adtract,
+                carhub,
                 karyz,
                 gingerblack,
                 nike,
@@ -199,14 +198,20 @@ const Footer = () => {
               ))}
 
               {/* Gradient Placeholders (Only When Collapsed) */}
-              {!showMore &&
+              {/* {!showMore &&
                 [1, 2, 3].map((item) => (
                   <div key={item} className="gallery-item">
                     <div className="relative w-full aspect-video rounded-3xl overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-b from-gray-300 to-primary/300" />
+                      <div className="absolute inset-00" />
+                      <img
+                        src="../assets/projects/carhub.png"
+                        alt={`Project Extra ${item}`}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 hover:scale-105"
+                      />
                     </div>
                   </div>
-                ))}
+                ))} */}
             </div>
           </div>
 

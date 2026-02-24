@@ -1,9 +1,10 @@
-// components/Card.tsx
 "use client";
 import { useEffect, useRef } from "react";
 import styles from "../assets/styles/enhanced.module.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +13,7 @@ interface CardProps {
   title: string;
   subtitle: string;
   description: string;
+  slug: string;
   images?: {
     main: string;
   };
@@ -23,6 +25,7 @@ interface CardProps {
 const Card = ({
   i,
   title,
+  slug,
   subtitle,
   description,
   images,
@@ -149,38 +152,40 @@ const Card = ({
       className={styles.cardContainer}
       style={{ "--index": i } as React.CSSProperties}
     >
-      <div className={styles.card} style={{ backgroundColor: color }}>
-        <div ref={headerRef} className={styles.header}>
-          <div className={styles.tag}>
-            <span>{tag}</span>
-          </div>
-          <div className={styles.tag}>
-            <span>{level}</span>
-          </div>
-        </div>
-
-        <h2 ref={titleRef}>{title}</h2>
-
-        <p ref={subtitleRef} style={{ marginTop: "6px", opacity: 0.85 }}>
-          {subtitle}
-        </p>
-
-        <div className={styles.body}>
-          <div ref={descriptionRef} className={styles.description}>
-            <p>{description}</p>
+      <Link href={`/projects/${slug}`}>
+        <div className={styles.card} style={{ backgroundColor: color }}>
+          <div ref={headerRef} className={styles.header}>
+            <div className={styles.tag}>
+              <span>{tag}</span>
+            </div>
+            <div className={styles.tag}>
+              <span>{level}</span>
+            </div>
           </div>
 
-          <div className={styles.imageContainer}>
-            <div ref={imageInnerRef} className={styles.inner}>
-              <img
-                src={images?.main}
-                alt={title}
-                style={{ objectFit: "cover", width: "100%", height: "100%" }}
-              />
+          <h2 ref={titleRef}>{title}</h2>
+
+          <p ref={subtitleRef} style={{ marginTop: "6px", opacity: 0.85 }}>
+            {subtitle}
+          </p>
+
+          <div className={styles.body}>
+            <div ref={descriptionRef} className={styles.description}>
+              <p>{description}</p>
+            </div>
+
+            <div className={styles.imageContainer}>
+              <div ref={imageInnerRef} className={styles.inner}>
+                <img
+                  src={images?.main}
+                  alt={title}
+                  style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

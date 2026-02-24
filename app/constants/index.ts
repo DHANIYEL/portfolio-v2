@@ -1,3 +1,19 @@
+
+export interface ProjectType {
+  id: number;
+  slug: string;
+  title: string;
+  subtitle: string;
+  level: string;
+  tag: string;
+  description: string;
+  color: string;
+  images: {
+    main: string;
+    secondary: string;
+  };
+  technologies: string[];
+}
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "#about" },
@@ -30,9 +46,10 @@ export const skills = [
 ];
 
 // constants/index.ts
-export const Projects = [
+export const Projects: ProjectType[] = [
   {
     id: 1,
+    slug: "dcars",
     title: "DCARS",
     subtitle: "Rent-a-Car Mobile & Web Platform",
     level: "ADVANCED",
@@ -41,12 +58,14 @@ export const Projects = [
       "Developed a scalable rental platform enabling users to browse, book, and manage car rentals. Architected AWS-hosted backend and built an admin dashboard for fleet management, pricing automation, and reporting.",
     color: "var(--color-primary)",
     images: {
-      main: "../assets/projects/dcars.png",
-      secondary: "../assets/projects/dcars-admin.png",
+      main: "/assets/projects/dcars.png",
+      secondary: "/assets/projects/dcars-admin.png",
     },
+    technologies: ["Next.js", "Node.js", "MongoDB", "AWS"],
   },
   {
     id: 2,
+    slug: "dexpress",
     title: "DEXPRESS",
     subtitle: "Grocery & Investment E-commerce App",
     level: "ADVANCED",
@@ -55,12 +74,14 @@ export const Projects = [
       "Built a grocery e-commerce application integrated with an investment rewards system. Developed admin panel for inventory control, analytics, and improved backend order flow efficiency.",
     color: "var(--color-third)",
     images: {
-      main: "../assets/projects/dexpress.png",
-      secondary: "../assets/projects/dexpress-admin.png",
+      main: "/assets/projects/dexpress.png",
+      secondary: "/assets/projects/dexpress-admin.png",
     },
+    technologies: ["React", "Node.js", "MongoDB", "Admin Panel"],
   },
   {
     id: 3,
+    slug: "moms-wives",
     title: "MOM’S & WIVES",
     subtitle: "Women Entrepreneur Marketplace",
     level: "ADVANCED",
@@ -69,12 +90,14 @@ export const Projects = [
       "Created a scalable online marketplace for women entrepreneurs to sell handmade products. Optimized onboarding workflow and architecture, achieving 250K+ active users within 6 months.",
     color: "var(--color-primary)",
     images: {
-      main: "../assets/projects/moms.png",
-      secondary: "../assets/projects/moms.png",
+      main: "/assets/projects/moms.png",
+      secondary: "/assets/projects/moms.png",
     },
+    technologies: ["Next.js", "MongoDB", "Scalable Architecture"],
   },
   {
     id: 4,
+    slug: "venture-ai",
     title: "VENTURE AI",
     subtitle: "AI Travel Itinerary Builder",
     level: "ADVANCED",
@@ -83,9 +106,10 @@ export const Projects = [
       "Developed an AI-powered travel planner using OpenAI API to generate dynamic itineraries. Integrated Pexels API for visuals and improved itinerary generation speed by 40%.",
     color: "var(--color-third)",
     images: {
-      main: "../assets/projects/gta.png",
-      secondary: "../assets/projects/venture-dashboard.png",
+      main: "/assets/projects/gta.png",
+      secondary: "/assets/projects/venture-dashboard.png",
     },
+    technologies: ["Next.js", "OpenAI API", "Pexels API"],
   },
 ];
 

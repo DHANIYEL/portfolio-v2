@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverButton from "../components/HoverButton";
 import Image from "next/image";
-import { FaInstagram, FaFacebookF, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 import carhub from "../assets/projects/carhub.png";
 import moms from "../assets/projects/moms.png";
 import gta from "../assets/projects/gta.png";
@@ -22,7 +22,6 @@ import karyz from "../assets/projects/karyz.png";
 import envai from "../assets/projects/envai.png";
 import gingerblack from "../assets/projects/gingerblack.png";
 import food from "../assets/projects/food.png";
-import { FaXTwitter } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -121,12 +120,31 @@ const Footer = () => {
     );
   }, []);
 
+  const mainProjects = [
+    { img: adtract, url: "https://adtract.com" },
+    { img: moms, url: "https://momsandwives.com" },
+    { img: gta, url: "https://venture-ai.com" },
+    { img: dexpress, url: "https://dexpress.com" },
+    { img: dcars, url: "https://dcars.com" },
+    { img: nearwala, url: "https://nearwala.com" },
+  ];
+  const extraProjects = [
+    { img: cloud, url: "https://cloud.com" },
+    { img: envai, url: "https://envai.com" },
+    { img: gemini, url: "https://gemini.com" },
+    { img: institute, url: "https://institute.com" },
+    { img: carhub, url: "https://carhub.com" },
+    { img: karyz, url: "https://karyz.com" },
+    { img: gingerblack, url: "https://gingerblack.com" },
+    { img: nike, url: "https://nike.com" },
+    { img: food, url: "https://food.com" },
+  ];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Email submitted:", email);
     setEmail("");
   };
-  const galleryItems = Array.from({ length: 9 }, (_, i) => i + 1);
 
   return (
     <div
@@ -152,49 +170,46 @@ const Footer = () => {
           <div className="relative">
             <div className="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
               {/* Always Visible */}
-              {[adtract, moms, gta, dexpress, dcars, nearwala].map(
-                (img, index) => (
-                  <div key={index} className="gallery-item">
-                    <div className="relative w-full aspect-video rounded-3xl overflow-hidden">
-                      <Image
-                        src={img}
-                        alt={`Project ${index + 1}`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-500 hover:scale-105"
-                        priority
-                      />
-                    </div>
-                  </div>
-                ),
-              )}
-
-              {/* Conditional (Show More) */}
-              {[
-                cloud,
-                envai,
-                gemini,
-                institute,
-                carhub,
-                karyz,
-                gingerblack,
-                nike,
-                food,
-              ].map((img, index) => (
-                <div
+              {mainProjects.map((project, index) => (
+                <a
                   key={index}
-                  className={`gallery-item ${showMore ? "" : "hidden"}`}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="gallery-item block"
                 >
                   <div className="relative w-full aspect-video rounded-3xl overflow-hidden">
                     <Image
-                      src={img}
+                      src={project.img}
+                      alt={`Project ${index + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                      priority
+                    />
+                  </div>
+                </a>
+              ))}
+
+              {/* Conditional (Show More) */}
+              {extraProjects.map((project, index) => (
+                <a
+                  key={index}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`gallery-item block ${showMore ? "" : "hidden"}`}
+                >
+                  <div className="relative w-full aspect-video rounded-3xl overflow-hidden">
+                    <Image
+                      src={project.img}
                       alt={`Project Extra ${index + 1}`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
-                </div>
+                </a>
               ))}
 
               {/* Gradient Placeholders (Only When Collapsed) */}

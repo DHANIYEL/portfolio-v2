@@ -1,6 +1,6 @@
 "use client";
 import styles from "../assets/styles/enhanced.module.scss";
-import { Projects } from "../constants/index.js";
+import { Projects } from "@/app/constants/index";
 import Card from "../components/Card";
 
 const ProjectsPage = () => {

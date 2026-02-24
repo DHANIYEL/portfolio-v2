@@ -12,6 +12,35 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   const [showMore, setShowMore] = useState(false);
 
+  const images = [
+    { id: 1, src: "/images/img1.jpg", alt: "Project 1", type: "always" },
+    { id: 2, src: "/images/img2.jpg", alt: "Project 2", type: "always" },
+    { id: 3, src: "/images/img3.jpg", alt: "Project 3", type: "always" },
+    { id: 4, src: "/images/img4.jpg", alt: "Project 4", type: "conditional" },
+    { id: 5, src: "/images/img5.jpg", alt: "Project 5", type: "conditional" },
+    { id: 6, src: "/images/img6.jpg", alt: "Project 6", type: "conditional" },
+    { id: 7, src: "/images/img7.jpg", alt: "Project 7", type: "conditional" },
+    { id: 8, src: "/images/img8.jpg", alt: "Project 8", type: "conditional" },
+    { id: 9, src: "/images/img9.jpg", alt: "Project 9", type: "conditional" },
+    {
+      id: 10,
+      src: "/images/placeholder1.jpg",
+      alt: "Preview 1",
+      type: "placeholder",
+    },
+    {
+      id: 11,
+      src: "/images/placeholder2.jpg",
+      alt: "Preview 2",
+      type: "placeholder",
+    },
+    {
+      id: 12,
+      src: "/images/placeholder3.jpg",
+      alt: "Preview 3",
+      type: "placeholder",
+    },
+  ];
   useGSAP(() => {
     // Animate gallery header
     gsap.fromTo(
@@ -25,8 +54,7 @@ const Footer = () => {
         scrollTrigger: {
           trigger: ".gallery-header",
           start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         },
       },
     );
@@ -45,7 +73,7 @@ const Footer = () => {
           trigger: ".gallery-grid",
           start: "top 75%",
           end: "bottom 20%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         },
       },
     );
@@ -63,7 +91,7 @@ const Footer = () => {
           trigger: ".see-more-btn",
           start: "top 85%",
           end: "bottom 20%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         },
       },
     );
@@ -110,7 +138,7 @@ const Footer = () => {
     console.log("Email submitted:", email);
     setEmail("");
   };
-const galleryItems = Array.from({ length: 9 }, (_, i) => i + 1);
+  const galleryItems = Array.from({ length: 9 }, (_, i) => i + 1);
 
   return (
     <div
@@ -134,81 +162,120 @@ const galleryItems = Array.from({ length: 9 }, (_, i) => i + 1);
           </div>
           {/* Gallery Grid */}
           <div className="relative">
-            <div className="gallery-grid grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
-              {/* Item 1 - Tall */}
-              <div className="gallery-item lg:row-span-2">
-                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+            <div className="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
+              {/* Item 1 */}
+              <div className="gallery-item">
+                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
+                  <img
+                    src="https://placehold.co/600x400"
+                    alt="Gallery Item 1"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </div>
               </div>
 
-              {/* Item 2 - Tall Center */}
-              <div className="gallery-item lg:row-span-2">
-                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+              {/* Item 2 */}
+              <div className="gallery-item">
+                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
+                  <img
+                    src="https://placehold.co/600x400"
+                    alt="Gallery Item 2"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </div>
               </div>
 
-              {/* Item 3 - Tall */}
-              <div className="gallery-item lg:row-span-2">
-                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
-              </div>
-              {/* Item 4 - Tall */}
-              <div
-                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
-              >
-                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
-              </div>
-
-              {/* Item 5 - Tall Center */}
-              <div
-                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
-              >
-                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+              {/* Item 3 */}
+              <div className="gallery-item">
+                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
+                  <img
+                    src="https://placehold.co/600x400"
+                    alt="Gallery Item 2"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </div>
               </div>
 
-              {/* Item 6 - Tall */}
-              <div
-                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
-              >
-                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
-              </div>
-              {/* Item 7 - Tall */}
-              <div
-                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
-              >
-                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+              {/* Item 4 - Conditional */}
+              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
+                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
+                  <img
+                    src="https://placehold.co/600x400"
+                    alt="Gallery Item 2"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </div>
               </div>
 
-              {/* Item 8 - Tall Center */}
-              <div
-                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
-              >
-                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+              {/* Item 5 - Conditional */}
+              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
+                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
+                  <img
+                    src="https://placehold.co/600x400"
+                    alt="Gallery Item 2"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </div>
               </div>
 
-              {/* Item 9 - Tall */}
-              <div
-                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
-              >
-                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+              {/* Item 6 - Conditional */}
+              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
+                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
+                  <img
+                    src="https://placehold.co/600x400"
+                    alt="Gallery Item 2"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </div>
               </div>
 
-              {/* Item 4 - Short with gradient */}
-              <div
-                className={`gallery-item lg:row-span-1 ${showMore ? "hidden" : ""}`}
-              >
-                <div className="w-full h-full min-h-[200px] lg:min-h-[240px] bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl"></div>
+              {/* Item 7 - Conditional */}
+              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
+                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
+                  <img
+                    src="https://placehold.co/600x400"
+                    alt="Gallery Item 2"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </div>
               </div>
 
-              {/* Item 5 - Short with gradient */}
-              <div
-                className={`gallery-item lg:row-span-1 ${showMore ? "hidden" : ""}`}
-              >
-                <div className="w-full h-full min-h-[200px] lg:min-h-[240px] bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl"></div>
+              {/* Item 8 - Conditional */}
+              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
+                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
+                  <img
+                    src="https://placehold.co/600x400"
+                    alt="Gallery Item 2"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </div>
               </div>
 
-              {/* Item 6 - Short with gradient */}
-              <div
-                className={`gallery-item lg:row-span-1 ${showMore ? "hidden" : ""}`}
-              >
-                <div className="w-full h-full min-h-[200px] lg:min-h-[240px] bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl"></div>
+              {/* Item 9 - Conditional */}
+              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
+                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
+                  <img
+                    src="https://placehold.co/600x400"
+                    alt="Gallery Item 2"
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+                </div>
+              </div>
+
+              {/* Short items (now also 16:9) */}
+              <div className={`gallery-item ${showMore ? "hidden" : ""}`}>
+                <div className="w-full aspect-video bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl">
+                </div>
+              </div>
+
+              <div className={`gallery-item ${showMore ? "hidden" : ""}`}>
+                <div className="w-full aspect-video  bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl">
+                </div>
+              </div>
+
+              <div className={`gallery-item ${showMore ? "hidden" : ""}`}>
+                <div className="w-full aspect-video  bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl">
+                </div>
               </div>
             </div>
           </div>

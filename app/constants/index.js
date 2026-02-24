@@ -91,21 +91,21 @@ export const Projects = [
 
 export const ExperienceData = [
   {
-    title: "Foundation of Creativity",
+    title: "Freelance Web Developer",
     description:
-      "Started as a curious mind, diving into the world of design. Experimented with various styles and techniques to build a solid foundation.",
-    period: "2020 - 2024",
+      "Built and delivered production-ready e-commerce and business websites using React and Angular. Developed responsive SPAs and achieved high client satisfaction with optimized performance.",
+    period: "May 2022 - Aug 2023",
   },
   {
-    title: "Growth and Innovation",
+    title: "Full-Stack Developer – DRUV 360",
     description:
-      "Refined my craft by embracing new technologies and approaches. Worked on impactful projects that pushed the boundaries of traditional design.",
-    period: "2020 - 2024",
+      "Developed and maintained scalable full-stack applications using React.js and Node.js. Integrated third-party APIs and improved state management and UI efficiency.",
+    period: "Sep 2023 - Jan 2024",
   },
   {
-    title: "Mastering the Art",
+    title: "Full-Stack Developer – Matajar Group (Dubai)",
     description:
-      "Evolved into a professional designer, delivering exceptional results for clients worldwide. Focused on creating immersive visuals and storytelling.",
-    period: "2020 - 2024",
+      "Built and deployed scalable web and mobile applications using React, Angular, Flutter, and Node.js. Implemented CI/CD pipelines with GitHub Actions and optimized performance with secure REST API integrations.",
+    period: "Apr 2025 - Jan 2026",
   },
 ];

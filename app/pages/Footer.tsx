@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [showMore, setShowMore] = useState(false);
 
   useGSAP(() => {
     // Animate gallery header
@@ -27,7 +28,7 @@ const Footer = () => {
           end: "bottom 20%",
           toggleActions: "play reverse play reverse",
         },
-      }
+      },
     );
 
     // Animate gallery items
@@ -46,7 +47,7 @@ const Footer = () => {
           end: "bottom 20%",
           toggleActions: "play reverse play reverse",
         },
-      }
+      },
     );
 
     // Animate see more button
@@ -64,7 +65,7 @@ const Footer = () => {
           end: "bottom 20%",
           toggleActions: "play reverse play reverse",
         },
-      }
+      },
     );
 
     // Animate contact section
@@ -82,7 +83,7 @@ const Footer = () => {
           end: "bottom 20%",
           toggleActions: "play reverse play reverse",
         },
-      }
+      },
     );
 
     // Animate contact form
@@ -100,7 +101,7 @@ const Footer = () => {
           end: "bottom 20%",
           toggleActions: "play reverse play reverse",
         },
-      }
+      },
     );
   }, []);
 
@@ -109,9 +110,13 @@ const Footer = () => {
     console.log("Email submitted:", email);
     setEmail("");
   };
+const galleryItems = Array.from({ length: 9 }, (_, i) => i + 1);
 
   return (
-    <div className="relative w-full bg-gradient-to-b from-secondary via-primary/30 to-primary text-black" id="contact">
+    <div
+      className="relative w-full bg-gradient-to-b from-secondary via-primary/30 to-primary text-black"
+      id="contact"
+    >
       {/* Gallery Section */}
       <div className="relative px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 md:py-24 lg:py-32">
         <div className="max-w-[1400px] mx-auto">
@@ -127,46 +132,95 @@ const Footer = () => {
               impression.
             </p>
           </div>
-            {/* Gallery Grid */}
+          {/* Gallery Grid */}
+          <div className="relative">
             <div className="gallery-grid grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
-            {/* Item 1 - Tall */}
-            <div className="gallery-item lg:row-span-2">
+              {/* Item 1 - Tall */}
+              <div className="gallery-item lg:row-span-2">
                 <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
-            </div>
+              </div>
 
-            {/* Item 2 - Tall Center */}
-            <div className="gallery-item lg:row-span-2">
+              {/* Item 2 - Tall Center */}
+              <div className="gallery-item lg:row-span-2">
                 <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
-            </div>
+              </div>
 
-            {/* Item 3 - Tall */}
-            <div className="gallery-item lg:row-span-2">
+              {/* Item 3 - Tall */}
+              <div className="gallery-item lg:row-span-2">
                 <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
-            </div>
+              </div>
+              {/* Item 4 - Tall */}
+              <div
+                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
+              >
+                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+              </div>
 
-            {/* Item 4 - Short with gradient */}
-            <div className="gallery-item lg:row-span-1">
+              {/* Item 5 - Tall Center */}
+              <div
+                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
+              >
+                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+              </div>
+
+              {/* Item 6 - Tall */}
+              <div
+                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
+              >
+                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+              </div>
+              {/* Item 7 - Tall */}
+              <div
+                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
+              >
+                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+              </div>
+
+              {/* Item 8 - Tall Center */}
+              <div
+                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
+              >
+                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+              </div>
+
+              {/* Item 9 - Tall */}
+              <div
+                className={`gallery-item lg:row-span-2 ${showMore ? "" : "hidden"}`}
+              >
+                <div className="w-full h-full min-h-[300px] lg:min-h-[500px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl"></div>
+              </div>
+
+              {/* Item 4 - Short with gradient */}
+              <div
+                className={`gallery-item lg:row-span-1 ${showMore ? "hidden" : ""}`}
+              >
                 <div className="w-full h-full min-h-[200px] lg:min-h-[240px] bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl"></div>
-            </div>
+              </div>
 
-            {/* Item 5 - Short with gradient */}
-            <div className="gallery-item lg:row-span-1">
+              {/* Item 5 - Short with gradient */}
+              <div
+                className={`gallery-item lg:row-span-1 ${showMore ? "hidden" : ""}`}
+              >
                 <div className="w-full h-full min-h-[200px] lg:min-h-[240px] bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl"></div>
-            </div>
+              </div>
 
-            {/* Item 6 - Short with gradient */}
-            <div className="gallery-item lg:row-span-1">
+              {/* Item 6 - Short with gradient */}
+              <div
+                className={`gallery-item lg:row-span-1 ${showMore ? "hidden" : ""}`}
+              >
                 <div className="w-full h-full min-h-[200px] lg:min-h-[240px] bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl"></div>
+              </div>
             </div>
-            </div>
-
+          </div>
 
           {/* See More Button */}
           <div className="see-more-btn text-center">
-            {/* <button className="px-8 py-3 border-2 border-white rounded-full text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-all duration-300">
-              SEE MORE
-            </button> */}
-            <HoverButton children="See More" className="border-white text-white" />
+            <HoverButton
+              onClick={() => setShowMore(!showMore)}
+              className="border-white text-white"
+            >
+              {showMore ? "Show Less" : "See More"}
+            </HoverButton>
           </div>
         </div>
       </div>
@@ -216,9 +270,7 @@ const Footer = () => {
                 >
                   Send
                 </button> */}
-                  <HoverButton className="bg-third text-white">
-                    Send
-                  </HoverButton>
+                <HoverButton className="bg-third text-white">Send</HoverButton>
               </form>
 
               {/* Social Icons */}

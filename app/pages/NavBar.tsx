@@ -150,7 +150,7 @@ const NavBar = () => {
                     bg.style.transform = "translate(0px, 0px)";
                   }
                 }}
-                className="relative p-5 text-white cursor-pointer group overflow-visible bg-transparent"
+                className="relative p-4 text-white cursor-pointer group overflow-visible bg-transparent"
               >
                 <div className="hamburger-icon flex flex-col gap-1.5 w-6 transition-transform duration-200 ease-out">
                   <span

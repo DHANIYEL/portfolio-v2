@@ -5,42 +5,30 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverButton from "../components/HoverButton";
+import Image from "next/image";
+import { FaInstagram, FaFacebookF, FaGithub, FaLinkedin } from "react-icons/fa";
+import carhub from "../assets/projects/carhub.png";
+import moms from "../assets/projects/moms.png";
+import gta from "../assets/projects/gta.png";
+import dexpress from "../assets/projects/dexpress.png";
+import dcars from "../assets/projects/dcars.png";
+import cloud from "../assets/projects/cloud.png";
+import nearwala from "../assets/projects/nearwala.png";
+import nike from "../assets/projects/nike.png";
+import gemini from "../assets/projects/gemini-clone.png";
+import institute from "../assets/projects/institute.png";
+import adtract from "../assets/projects/adtract.png";
+import karyz from "../assets/projects/karyz.png";
+import envai from "../assets/projects/envai.png";
+import gingerblack from "../assets/projects/gingerblack.png";
+import food from "../assets/projects/food.png";
+import { FaXTwitter } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [showMore, setShowMore] = useState(false);
-
-  const images = [
-    { id: 1, src: "/images/img1.jpg", alt: "Project 1", type: "always" },
-    { id: 2, src: "/images/img2.jpg", alt: "Project 2", type: "always" },
-    { id: 3, src: "/images/img3.jpg", alt: "Project 3", type: "always" },
-    { id: 4, src: "/images/img4.jpg", alt: "Project 4", type: "conditional" },
-    { id: 5, src: "/images/img5.jpg", alt: "Project 5", type: "conditional" },
-    { id: 6, src: "/images/img6.jpg", alt: "Project 6", type: "conditional" },
-    { id: 7, src: "/images/img7.jpg", alt: "Project 7", type: "conditional" },
-    { id: 8, src: "/images/img8.jpg", alt: "Project 8", type: "conditional" },
-    { id: 9, src: "/images/img9.jpg", alt: "Project 9", type: "conditional" },
-    {
-      id: 10,
-      src: "/images/placeholder1.jpg",
-      alt: "Preview 1",
-      type: "placeholder",
-    },
-    {
-      id: 11,
-      src: "/images/placeholder2.jpg",
-      alt: "Preview 2",
-      type: "placeholder",
-    },
-    {
-      id: 12,
-      src: "/images/placeholder3.jpg",
-      alt: "Preview 3",
-      type: "placeholder",
-    },
-  ];
   useGSAP(() => {
     // Animate gallery header
     gsap.fromTo(
@@ -163,120 +151,62 @@ const Footer = () => {
           {/* Gallery Grid */}
           <div className="relative">
             <div className="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
-              {/* Item 1 */}
-              <div className="gallery-item">
-                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
-                  <img
-                    src="https://placehold.co/600x400"
-                    alt="Gallery Item 1"
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
+              {/* Always Visible */}
+              {[carhub, moms, gta].map((img, index) => (
+                <div key={index} className="gallery-item">
+                  <div className="relative w-full aspect-video rounded-3xl overflow-hidden">
+                    <Image
+                      src={img}
+                      alt={`Project ${index + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                      priority
+                    />
+                  </div>
                 </div>
-              </div>
+              ))}
 
-              {/* Item 2 */}
-              <div className="gallery-item">
-                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
-                  <img
-                    src="https://placehold.co/600x400"
-                    alt="Gallery Item 2"
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
+              {/* Conditional (Show More) */}
+              {[
+                dexpress,
+                dcars,
+                cloud,
+                nearwala,
+                envai,
+                gemini,
+                institute,
+                adtract,
+                karyz,
+                gingerblack,
+                nike,
+                food,
+              ].map((img, index) => (
+                <div
+                  key={index}
+                  className={`gallery-item ${showMore ? "" : "hidden"}`}
+                >
+                  <div className="relative w-full aspect-video rounded-3xl overflow-hidden">
+                    <Image
+                      src={img}
+                      alt={`Project Extra ${index + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  </div>
                 </div>
-              </div>
+              ))}
 
-              {/* Item 3 */}
-              <div className="gallery-item">
-                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
-                  <img
-                    src="https://placehold.co/600x400"
-                    alt="Gallery Item 2"
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                </div>
-              </div>
-
-              {/* Item 4 - Conditional */}
-              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
-                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
-                  <img
-                    src="https://placehold.co/600x400"
-                    alt="Gallery Item 2"
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                </div>
-              </div>
-
-              {/* Item 5 - Conditional */}
-              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
-                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
-                  <img
-                    src="https://placehold.co/600x400"
-                    alt="Gallery Item 2"
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                </div>
-              </div>
-
-              {/* Item 6 - Conditional */}
-              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
-                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
-                  <img
-                    src="https://placehold.co/600x400"
-                    alt="Gallery Item 2"
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                </div>
-              </div>
-
-              {/* Item 7 - Conditional */}
-              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
-                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
-                  <img
-                    src="https://placehold.co/600x400"
-                    alt="Gallery Item 2"
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                </div>
-              </div>
-
-              {/* Item 8 - Conditional */}
-              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
-                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
-                  <img
-                    src="https://placehold.co/600x400"
-                    alt="Gallery Item 2"
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                </div>
-              </div>
-
-              {/* Item 9 - Conditional */}
-              <div className={`gallery-item ${showMore ? "" : "hidden"}`}>
-                <div className="w-full aspect-video bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
-                  <img
-                    src="https://placehold.co/600x400"
-                    alt="Gallery Item 2"
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                </div>
-              </div>
-
-              {/* Short items (now also 16:9) */}
-              <div className={`gallery-item ${showMore ? "hidden" : ""}`}>
-                <div className="w-full aspect-video bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl">
-                </div>
-              </div>
-
-              <div className={`gallery-item ${showMore ? "hidden" : ""}`}>
-                <div className="w-full aspect-video  bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl">
-                </div>
-              </div>
-
-              <div className={`gallery-item ${showMore ? "hidden" : ""}`}>
-                <div className="w-full aspect-video  bg-gradient-to-b from-gray-300 to-primary/300 rounded-3xl">
-                </div>
-              </div>
+              {/* Gradient Placeholders (Only When Collapsed) */}
+              {!showMore &&
+                [1, 2, 3].map((item) => (
+                  <div key={item} className="gallery-item">
+                    <div className="relative w-full aspect-video rounded-3xl overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-b from-gray-300 to-primary/300" />
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
 
@@ -341,45 +271,35 @@ const Footer = () => {
               </form>
 
               {/* Social Icons */}
-              <div className="flex gap-6 justify-start">
+              <div className="flex gap-6 justify-start text-white">
                 <a
-                  href="#"
-                  className="text-white hover:text-third/50 transition-colors"
+                  href="https://instagram.com/yourusername"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Instagram"
+                  className="hover:text-[#c95396] transition-all duration-300 hover:scale-110"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                  </svg>
+                  <FaInstagram size={24} />
                 </a>
+
                 <a
-                  href="#"
-                  className="text-white hover:text-third/50 transition-colors"
+                  href="https://twitter.com/yourusername"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Twitter"
+                  className="hover:text-third transition-all duration-300 hover:scale-110"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                  </svg>
+                  <FaGithub size={24} />
                 </a>
+
                 <a
-                  href="#"
-                  className="text-white hover:text-third/50 transition-colors"
+                  href="https://www.linkedin.com/in/dhaniyel-darvesh-256987280/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Facebook"
+                  className="hover:text-[#0aa2f4] transition-all duration-300 hover:scale-110"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                  </svg>
+                  <FaLinkedin size={24} />
                 </a>
               </div>
             </div>

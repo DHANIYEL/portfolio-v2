@@ -7,9 +7,23 @@
 }
 
 * {
-  /* cursor: none !important; */
+  cursor: none !important;
 }
 
+/* Hide scrollbar for Chrome, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE/Edge */
+body {
+  -ms-overflow-style: none;
+}
 body {
   background-color: #fffffa !important;
   font-family: var(--font-after), sans-serif;
@@ -55,8 +69,12 @@ html {
   background: transparent; /* no fill */
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: width 0.25s ease, height 0.25s ease, border 0.25s ease,
-    background 0.25s ease, mix-blend-mode 0.25s ease;
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    border 0.25s ease,
+    background 0.25s ease,
+    mix-blend-mode 0.25s ease;
   z-index: 9999;
 
   /* This makes cursor invert or "mask" content behind it */

@@ -57,12 +57,12 @@ const About = () => {
   }, []);
 
   const interests = [
-    "CHILL",
-    "LO-FI LOVER",
-    "COFFEE",
-    "LOVE READING BOOK",
-    "AMERICAN BURGER",
-    "MATCHA",
+    "CLEAN CODE",
+    "SCALABLE SYSTEMS",
+    "API ARCHITECTURE",
+    "UI ENGINEERING",
+    "PERFOMANCE FIRST",
+    "PROBLEM SOLVER",
   ];
 
   return (
@@ -137,18 +137,18 @@ const About = () => {
           </div>
           {/* Right Side - Content */}
           <div className="about-fade-right space-y-8">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight">
-              Design is not
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-tight max-w-2xl">
+              Engineering ideas into
               <br />
-              just what I do
+              scalable digital experiences
             </h1>
 
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl">
-              Every project I take on is a reflection of my passion for
-              creativity, a journey where colors, shapes, and ideas come
-              together to tell a story. This portfolio represents more than
-              work; it's a collection of moments where vision meets execution,
-              bringing dreams to life with bold, vibrant energy.
+              I specialize in building modern web and mobile applications using
+              scalable architectures and clean development practices. From
+              backend APIs to interactive frontends, I focus on performance,
+              maintainability, and real-world usability. Each project reflects a
+              commitment to solving problems through thoughtful engineering.
             </p>
 
             {/* Interest Tags */}
@@ -157,7 +157,7 @@ const About = () => {
                 <span
                   key={index}
                   className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium border transition-all duration-300 hover:scale-105 ${
-                    interest === "MATCHA"
+                    interest === "PROBLEM SOLVER"
                       ? "bg-primary border-primary text-white"
                       : "bg-transparent border-primary text-primary hover:bg-primary hover:text-white"
                   }`}
@@ -170,7 +170,7 @@ const About = () => {
             {/* Inspired by Text */}
             <div className="fade-up pt-8">
               <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-wider">
-                INSPIRED BY EVERYDAY
+                BUILT WITH PURPOSE
               </h2>
             </div>
           </div>

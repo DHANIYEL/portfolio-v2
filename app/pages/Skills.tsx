@@ -106,8 +106,7 @@ const Skills = () => {
         {/* Main heading */}
         <div className="mb-16 md:mb-20">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl max-w-5xl font-bold leading-tight">
-            I transform ideas into compellin' visuals that leave a lasting
-            impact.
+            I turn complex ideas into powerful, production-ready applications.
           </h2>
         </div>
 
@@ -126,11 +125,11 @@ const Skills = () => {
           </div>
 
           {/* Description text */}
-          <div className="relative z-10 mb-12 md:mb-16 max-w-2xl">
+          <div className="relative z-10 mb-12 md:mb-16 max-w-4xl">
             <p className="text-black text-base sm:text-lg md:text-xl leading-relaxed font-medium px-10">
-              I transform ideas into compelling visuals that leave a lasting
-              impact. From bold graphic designs to intricate 3D modeling, my
-              work bridges creativity and functionality.
+              My expertise spans modern frontend frameworks, scalable backend
+              development, cloud integration, and DevOps practices — enabling me
+              to build complete, production-ready digital systems.
             </p>
           </div>
 
@@ -139,7 +138,8 @@ const Skills = () => {
           <div className="relative z-10 min-h-[300px] md:min-h-[350px]">
             <div
               ref={containerRef}
-className="relative w-full h-[650px] rounded-xl"            >
+              className="relative w-full h-[650px] rounded-xl"
+            >
               {skills.map((skill, index) => {
                 const randomRotation = `${Math.floor(Math.random() * 30 - 15)}deg`; // -15deg to +15deg
                 const randomX = Math.floor(Math.random() * 500); // width range

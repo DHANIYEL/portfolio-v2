@@ -246,8 +246,9 @@ const Footer = () => {
                   Connected
                 </h3>
                 <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                  Consectetur nostris dapibus eu eleifend lacinia metus sodales
-                  class ac inroin porttitor amet integer pellentesque
+                  Have an idea, opportunity, or challenge in mind? I’m always
+                  open to discussing new projects and creating impactful digital
+                  solutions.
                 </p>
               </div>
 

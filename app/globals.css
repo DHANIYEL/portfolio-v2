@@ -65,8 +65,9 @@ html {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.8); /* outline only */
+  border: 2px solid #90ee90; /* outline only */
   background: transparent; /* no fill */
+  mix-blend-mode: difference;
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition:

@@ -273,7 +273,7 @@ const Footer = () => {
               {/* Social Icons */}
               <div className="flex gap-6 justify-start text-white">
                 <a
-                  href="https://instagram.com/yourusername"
+                  href="https://www.instagram.com/dhaniiiyll/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
@@ -283,7 +283,7 @@ const Footer = () => {
                 </a>
 
                 <a
-                  href="https://twitter.com/yourusername"
+                  href="https://github.com/DHANIYEL"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter"

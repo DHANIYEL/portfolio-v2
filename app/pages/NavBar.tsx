@@ -2,7 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { navLinks } from "../constants";
 import HoverButton from "../components/HoverButton";
-import { motion, AnimatePresence, useScroll } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { usePathname } from "next/navigation";
 import Curve from "../components/Curve";
 import Link from "next/link";
@@ -41,6 +47,17 @@ const slide = {
 
 const NavBar = () => {
   const { scrollYProgress } = useScroll();
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+  });
+
+  const visibleProgress = useTransform(
+    smoothProgress,
+    [0, 1],
+    [0.03, 1], // Start at 3% instead of 0%
+  );
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
 
@@ -48,6 +65,10 @@ const NavBar = () => {
     if (isActive) setIsActive(false);
   }, [pathname]);
 
+  const handleNavigate = () => {
+    if (isActive) setIsActive(false);
+    else setIsActive(true);
+  };
   return (
     <>
       <header
@@ -88,7 +109,7 @@ const NavBar = () => {
                 style={{ willChange: "transform" }}
               ></div>
               <button
-                onClick={() => setIsActive(!isActive)}
+                onClick={() => handleNavigate()}
                 onMouseMove={(e) => {
                   const rect = e.currentTarget.getBoundingClientRect();
                   const centerX = rect.width / 2;
@@ -153,10 +174,10 @@ const NavBar = () => {
           </div>
         </nav>
         <motion.div
-          className="h-[2px] w-full origin-left"
+          className="fixed top-0 left-0 h-[6px] w-full origin-left z-50 rounded-full"
           style={{
-            scaleX: scrollYProgress,
-            backgroundColor: "var(--color-primary)",
+            scaleX: visibleProgress,
+            background: "linear-gradient(to right, #f4835e, #ffb199)",
           }}
         />
       </header>
@@ -269,6 +290,7 @@ const NavBar = () => {
                         exit="exit"
                       >
                         <Link
+                          onClick={() => setIsActive(false)}
                           href={link.href}
                           className="text-3xl sm:text-4xl md:text-5xl font-light hover:text-primary transition-colors duration-300 block py-1 sm:py-2"
                         >
@@ -282,22 +304,34 @@ const NavBar = () => {
                 <div className="mt-auto">
                   <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm">
                     <a
-                      href="#"
+                      href="https://github.com/DHANIYEL"
+                      target="_blank"
                       className="hover:text-primary transition-colors"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub"
+                      onClick={() => setIsActive(false)}
                     >
                       GitHub
                     </a>
                     <a
-                      href="#"
+                      href="https://www.linkedin.com/in/dhaniyel-darvesh-256987280/"
+                      target="_blank"
                       className="hover:text-primary transition-colors"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                      onClick={() => setIsActive(false)}
                     >
                       LinkedIn
                     </a>
                     <a
-                      href="#"
+                      href="https://www.instagram.com/dhaniiiyll/?hl=en"
+                      target="_blank"
                       className="hover:text-primary transition-colors"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                      onClick={() => setIsActive(false)}
                     >
-                      Twitter
+                      Instagram
                     </a>
                   </div>
                 </div>

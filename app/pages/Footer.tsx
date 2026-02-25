@@ -121,23 +121,23 @@ const Footer = () => {
   }, []);
 
   const mainProjects = [
-    { img: adtract, url: "https://adtract.com" },
+    { img: adtract, url: "https://adtractcreatives.vercel.app/" },
     { img: moms, url: "https://momsandwives.com" },
-    { img: gta, url: "https://venture-ai.com" },
+    { img: gta, url: "https://gta-vi-eight-swart.vercel.app/" },
     { img: dexpress, url: "https://dexpress.com" },
-    { img: dcars, url: "https://dcars.com" },
-    { img: nearwala, url: "https://nearwala.com" },
+    { img: dcars, url: "https://dcars.ae/" },
+    { img: nearwala, url: "https://nearwala.vercel.app/" },
   ];
   const extraProjects = [
-    { img: cloud, url: "https://cloud.com" },
-    { img: envai, url: "https://envai.com" },
-    { img: gemini, url: "https://gemini.com" },
-    { img: institute, url: "https://institute.com" },
-    { img: carhub, url: "https://carhub.com" },
-    { img: karyz, url: "https://karyz.com" },
-    { img: gingerblack, url: "https://gingerblack.com" },
-    { img: nike, url: "https://nike.com" },
-    { img: food, url: "https://food.com" },
+    { img: cloud, url: "http://serverninja.in/" },
+    { img: envai, url: "https://envaiproject.vercel.app/" },
+    { img: gemini, url: "https://gemini-clone-two-psi.vercel.app/" },
+    { img: institute, url: "https://vidyalaya-inst.vercel.app/" },
+    { img: carhub, url: "https://carhub-kappa-two.vercel.app/" },
+    { img: karyz, url: "https://karyz.store/" },
+    { img: gingerblack, url: "https://ginger-black.vercel.app/" },
+    { img: nike, url: "https://nike-app-tailwindcss-bice.vercel.app/" },
+    { img: food, url: "https://food-app-react-flax.vercel.app/" },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {

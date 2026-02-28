@@ -22,7 +22,7 @@ const Hero = () => {
           y: 0,
           duration: 1.5,
           ease: "power2.out",
-        }
+        },
       );
       gsap.fromTo(
         ".fade-left",
@@ -32,7 +32,7 @@ const Hero = () => {
           x: 0,
           duration: 1.5,
           ease: "power2.out",
-        }
+        },
       );
       gsap.fromTo(
         ".fade-right",
@@ -42,7 +42,7 @@ const Hero = () => {
           x: 0,
           duration: 1.5,
           ease: "power2.out",
-        }
+        },
       );
     }
     const tl = gsap.timeline({
@@ -66,14 +66,33 @@ const Hero = () => {
       {/* {isLoading && <Loader onComplete={handleLoadComplete} />} */}
       <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-visible px-4 md:px-8 py-20">
         {/* Main Title - CREATIVE WORLD */}
-        <div className="relative z-10 mb-10 md:mb-20">
-          <h1 className="text-primary font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] text-center tracking-wider leading-none uppercase fade-in text-scale">
+        <div className="relative group inline-block">
+          <a
+            href="/assets/Dhaniyel_Darvesh_Resume_V5.pdf"
+            download="Dhaniyel_Darvesh_Resume.pdf"
+            className="text-primary font-bold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] text-center tracking-wider leading-none uppercase fade-in text-scale cursor-pointer transition duration-300 hover:scale-105"
+          >
             DHANIYEL
-            {/* Create */}
             <br />
             DARVESH
-            {/* Designs */}
-          </h1>
+          </a>
+
+          {/* Glass Tooltip */}
+          <div
+            className="
+      absolute left-1/2 -translate-x-1/2 mt-6
+      opacity-0 group-hover:opacity-100
+      translate-y-4 group-hover:translate-y-0
+      transition-all duration-300 ease-out
+      backdrop-blur-xl bg-third/10
+      border border-third/20
+      text-primary text-sm px-6 py-3
+      rounded-2xl shadow-2xl
+      pointer-events-none
+    "
+          >
+            Click to Download Resume
+          </div>
         </div>
 
         {/* Bottom Text */}
